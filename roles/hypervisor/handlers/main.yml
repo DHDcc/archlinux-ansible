@@ -1,0 +1,6 @@
+- name: restart libvirtd
+  service:
+    name: "{{ hypervisor.service }}"
+    state: restarted
+  become: true
+

@@ -1,0 +1,24 @@
+---
+   
+-  name: Archlinux post-installation
+   hosts: host
+   connection: local
+   gather_facts: false
+   become: true
+
+
+   roles:
+     - { role: pacman, tags: ['pacman'] }
+     - { role: user_directorys, tags: ['user_directorys'] }
+     - { role: paru, tags: ['paru'] }
+     - { role: dotfiles, tags: ['dotfiles'], when: "extra.dotfiles_installation == 'true'" }
+     - { role: base, tags: ['base'], when: "extra.full_installation == 'false'" }
+     #- { role: full_install, tags: ['full_install'], when: "extra.full_installation == 'true'" }
+     - { role: sound, tags: ['sound'] }
+     - { role: amdgpu, tags: ['amdgpu'], when: "amdgpu == 'true'" }
+     - { role: display_manager, tags: ['display_manager'] }
+     - { role: hypervisor, tags: ['hypervisor'], when: "extra.hypervisor == 'true'" }
+     - { role: games, tags: ['games'], when: "extra.gamming_packages == 'true'" }
+     - { role: firewall, tags: ['firewall'], when: "extra.firewall == 'true'" }
+     - { role: cleanup, tags: ['cleanup'] }
+  

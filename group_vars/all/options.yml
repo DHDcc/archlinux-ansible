@@ -1,0 +1,14 @@
+username: "USER" # Replace 'USER' with your username.
+
+userdirectory: "/home/{{ username }}"
+
+useruid: "1000"
+
+amdgpu: "true" # Set 'present' to 'false' if you have a Nvidia gpu
+
+extra:
+  full_installation: "false" # NEED TO CHANGE, DO NOT CHANGE !
+  dotfiles_installation: "true"
+  hypervisor: "true"
+  gamming_packages: "true"
+  firewall: "true" 

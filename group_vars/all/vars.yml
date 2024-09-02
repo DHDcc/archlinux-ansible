@@ -1,0 +1,157 @@
+amdgpu_packages:
+  - mesa
+  - lib32-mesa
+  - vulkan-radeon
+
+dotfiles:
+  url: "https://github.com/DHDcc/MyHyprland.git"
+  destination: "{{ userdirectory }}/MyHyprland"
+
+sound:
+  packages:
+    - pipewire
+    - pipewire-pulse
+    - wireplumber
+    - flac
+    - pavucontrol
+  services:
+    - pipewire
+    - pipewire-pulse
+    - wireplumber
+
+hypervisor:
+  packages:
+    - qemu-base
+    - qemu-system-x86
+    - qemu-system-x86-firmware
+    - libvirt
+    - bridge-utils
+    - virt-manager
+    - virt-viewer
+    - dnsmasq
+    - vde2
+    - openbsd-netcat
+    - ebtables
+    - python-lxml
+    #- iptables
+    - libguestfs
+  service: libvirtd
+  groups:
+    - libvirt
+    - kvm
+
+fonts:
+  pacman:
+    - powerline-fonts
+    - papirus-icon-theme
+    - ttf-linux-libertine
+    - noto-fonts-emoji
+    - noto-fonts-extra
+  aur:
+    - nerd-fonts-git
+    - fontpreview-git
+
+gamming_packages:
+  pacman:
+    - steam
+    - lutris
+    - gamemode
+    - mangohud 
+  aur: heroic-games-launcher-bin
+
+firewall:
+  allow_ports:
+    - 80
+    - 443
+    - 53317
+  deny_port: 22
+
+terminal_packages:
+  pacman:
+    - kitty
+    - zsh
+    - lsd
+    - zoxide
+    - ranger
+    - fzf
+    - imv
+    - yt-dlp
+    - neofetch
+    - ncdu
+    - bat
+    - btop
+    - p7zip
+    - unzip
+    - wl-clipboard
+    - newsboat
+    - plocate
+    - swww
+    - tree
+    - man-db
+    - tldr
+    - ttyper
+  aur:
+    - cava
+    - preload
+    - lavat-git
+    - downgrade
+
+aur_packages:
+  - cava
+  - downgrade
+  - feishin-bin
+  - fontpreview-git
+  - freetube-bin
+  - grimblast-git
+  - heroic-games-launcher-bin
+  - lavat-git
+  #- mullvad-vpn
+  - nerd-fonts-git
+  - onlyoffice-bin
+  - pika-backup
+  - preload
+  - rofi-lbonn-wayland-git
+  - spotify
+  - thunar-shares-plugin
+  - trilium-bin
+  - ventoy-bin
+  - vscodium-bin
+  - wlogout
+
+hypr_ecosystem:
+  pacman:
+    - hyprland
+    - hyprlock
+    - hypridle
+    - xdg-desktop-portal-hyprland
+  aur: 
+    - grimblast-git 
+    - hyprpicker
+
+base_packages:
+  pacman:
+    - firefox
+    - pacman-contrib
+    - udiskie
+    - waybar
+    - swaync
+    - qt5ct
+    - qt5-wayland
+    - polkit-gnome
+    - network-manager-applet
+    - qbittorrent
+    - obs-studio
+    - thunar
+    - gnome-disk-utility
+    - thunar-archive-plugin
+    - xdg-desktop-portal
+    - xdg-desktop-portal-wlr
+    - xdg-desktop-portal-gtk
+  aur:
+   - rofi-lbonn-wayland-git
+   - wlogout 
+   - freetube-bin
+   - pika-backup
+   - onlyoffice-bin
+   - thunar-shares-plugin
+   - vscodium-bin
