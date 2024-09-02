@@ -26,7 +26,7 @@ username: "USER" # Replace 'USER' with your username.
 > [!TIP]
 > You can also enable or disable options in the file by using ```true``` or ```false```.
 >
-> Example:  ```amdgpu: "true" # Set 'amdgpu' to 'false' if you have a Nvidia gpu```
+> Example:  ```amdgpu: "true" # Set 'amdgpu' to 'false' if you have a Nvidia gpu.```
 
 ### 4. Install require collection and run the playbook:
 ```
