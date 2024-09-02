@@ -13,7 +13,7 @@ This playbook will install my [dotfiles](https://github.com/DHDcc/MyHyprland) an
 sudo pacman -Syu ansible git
 ```
 
-### 2. Clone repo:
+### 2. Clone repository:
 ```
 git clone https://github.com/DHDcc/archlinux-ansible.git
 ```
