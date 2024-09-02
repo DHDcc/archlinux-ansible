@@ -4,10 +4,10 @@ userdirectory: "/home/{{ username }}"
 
 useruid: "1000"
 
-amdgpu: "true" # Set 'present' to 'false' if you have a Nvidia gpu
+amdgpu: "true" # Set 'amdgpu' to 'false' if you have a Nvidia gpu.
 
 extra:
-  full_installation: "false" # NEED TO CHANGE, DO NOT CHANGE !
+  full_installation: "false" # NEED TO CREATE ROLE, DO NOT CHANGE THIS OPTION !!!
   dotfiles_installation: "true"
   hypervisor: "true"
   gamming_packages: "true"
