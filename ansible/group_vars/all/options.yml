@@ -1,5 +1,3 @@
-username: "USER" # Replace 'USER' with your username.
-
 options:
   full_installation: "false" # NEED TO CREATE ROLE, DO NOT CHANGE THIS OPTION !!!
   dotfiles_installation: "true"

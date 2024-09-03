@@ -20,8 +20,6 @@ git clone https://github.com/DHDcc/archlinux-ansible.git
 ```
 
 ### 3. ( optional ) Set options
-You can enable or disable options in the file by using ```true``` or ```false```.
-
 ```cd``` in to the ansible directory and edit the```group_vars/all/options.yml``` file.
 
 #### Example:  
