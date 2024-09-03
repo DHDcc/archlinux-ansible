@@ -11,7 +11,5 @@
     scope: user
   loop: "{{ sound.services }}"
   become: false
-  environment: 
-    XDG_RUNTIME_DIR: "/run/user/{{ useruid }}"
 
 

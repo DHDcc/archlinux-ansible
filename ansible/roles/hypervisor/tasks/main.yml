@@ -25,7 +25,7 @@
 
    - name: Add user to the libvirt and kvm group
      ansible.builtin.user:
-       name: "{{ username }}"
+       name: "{{ user.name }}"
        groups: "{{ hypervisor.groups }}"
        append: yes
      notify: restart libvirtd

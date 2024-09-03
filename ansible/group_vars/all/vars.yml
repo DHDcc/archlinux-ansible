@@ -1,6 +1,7 @@
-userdirectory: "/home/{{ username }}"
-
-useruid: "1000"
+user: 
+  name: "{{ lookup('env', 'USER') }}"
+  directory: "{{ lookup('env', 'HOME') }}"
+  uid: "{{ lookup('env', 'UID') }}"
 
 amdgpu_packages:
   - mesa
@@ -9,7 +10,7 @@ amdgpu_packages:
 
 dotfiles:
   url: "https://github.com/DHDcc/MyHyprland.git"
-  destination: "{{ userdirectory }}/MyHyprland"
+  destination: "{{ user.directory }}/MyHyprland"
 
 sound:
   packages:
