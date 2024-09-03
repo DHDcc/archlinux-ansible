@@ -1,0 +1,9 @@
+username: "USER" # Replace 'USER' with your username.
+
+options:
+  full_installation: "false" # NEED TO CREATE ROLE, DO NOT CHANGE THIS OPTION !!!
+  dotfiles_installation: "true"
+  amdgpu: "true" # Set 'amdgpu' to 'false' if you have a Nvidia gpu.
+  hypervisor: "true"
+  gamming_packages: "true"
+  firewall: "true" 
