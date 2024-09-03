@@ -1,3 +1,7 @@
+userdirectory: "/home/{{ username }}"
+
+useruid: "1000"
+
 amdgpu_packages:
   - mesa
   - lib32-mesa

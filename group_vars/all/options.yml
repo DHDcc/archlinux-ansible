@@ -1,9 +1,5 @@
 username: "USER" # Replace 'USER' with your username.
 
-userdirectory: "/home/{{ username }}"
-
-useruid: "1000"
-
 amdgpu: "true" # Set 'amdgpu' to 'false' if you have a Nvidia gpu.
 
 extra:
