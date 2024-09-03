@@ -25,7 +25,6 @@ To configure the installation, edit this file: ```archlinux-ansible/ansible/grou
 
 #### Example:  
 ```
-# To disable or enable options, use "false" or "true".
 
 amdgpu: "true" # Set 'amdgpu' to 'false' if you have a Nvidia gpu.
 ```
