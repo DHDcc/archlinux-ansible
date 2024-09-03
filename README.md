@@ -18,7 +18,7 @@ sudo pacman -Syu ansible git
 git clone https://github.com/DHDcc/archlinux-ansible.git
 ```
 
-### 3. Add your username in to the options file ( archlinux-ansible/group_vars/all/options.yml ):
+### 3. Add your username in to the options file ( archlinux-ansible/ansible/group_vars/all/options.yml ):
 ```
 username: "USER" # Replace 'USER' with your username.
 ```
