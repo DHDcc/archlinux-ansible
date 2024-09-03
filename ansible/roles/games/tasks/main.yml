@@ -6,7 +6,7 @@
 
 - name: Install gamming packages with paru
   kewlfft.aur.aur:
-    use: paru
+    use: "{{ options.aur_helper.name }}"
     name: "{{ gamming_packages.aur }}"
     state: present
   become: true

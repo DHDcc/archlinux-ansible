@@ -2,6 +2,9 @@ options:
   full_installation: "false" # NEED TO CREATE ROLE, DO NOT CHANGE THIS OPTION !!!
   dotfiles_installation: "true"
   amdgpu: "true" # Set 'amdgpu' to 'false' if you have a Nvidia gpu.
-  hypervisor: "true"
+  aur_helper: 
+    name: "paru" # Pick your favarite aur helpers. 
+    binary: "true" 
+  hypervisor: "true" # Set 'hypervisor' to 'false' if you don't want to install qemu/virtmanager.
   gamming_packages: "true"
-  firewall: "true" 
+  firewall: "true" # Set 'firewall' to 'false' if you don't want to install ufw.

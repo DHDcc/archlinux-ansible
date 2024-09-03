@@ -10,7 +10,7 @@
    roles:
      - { role: pacman, tags: ['pacman'] }
      - { role: user_directorys, tags: ['user_directorys'] }
-     - { role: paru, tags: ['paru'] }
+     - { role: aur_helper, tags: ['aur_helper'] }
      - { role: dotfiles, tags: ['dotfiles'], when: "options.dotfiles_installation == 'true'" }
      - { role: base, tags: ['base'], when: "options.full_installation == 'false'" }
      #- { role: full_install, tags: ['full_install'], when: "options.full_installation == 'true'" }

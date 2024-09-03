@@ -8,7 +8,7 @@
 
 - name: Install lact with paru
   kewlfft.aur.aur:
-    use: paru
+    use: "{{ options.aur_helper.name }}"
     name: lact
     state: present
   become: true

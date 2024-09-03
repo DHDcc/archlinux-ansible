@@ -16,7 +16,12 @@
 
 - name: Install paru using makepkg
   kewlfft.aur.aur:
-    name: paru-bin
+    name: > 
+      {% if options.aur_helper.binary == 'true' %}
+        {{ options.aur_helper.name  + '-bin'}}  
+       {% else %} 
+         {{ options.aur_helper.name }}
+       {% endif %}
     use: makepkg
     state: present
   become: true
