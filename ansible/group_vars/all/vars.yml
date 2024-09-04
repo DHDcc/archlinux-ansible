@@ -26,9 +26,7 @@ sound:
 
 hypervisor:
   packages:
-    - qemu-base
-    - qemu-system-x86
-    - qemu-system-x86-firmware
+    - qemu-full
     - libvirt
     - bridge-utils
     - virt-manager
