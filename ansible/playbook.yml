@@ -14,6 +14,7 @@
      - { role: dotfiles, tags: ['dotfiles'] }
      - { role: base, tags: ['base'], when: "options.full_installation == 'false'" }
      #- { role: full_install, tags: ['full_install'], when: "options.full_installation == 'true'" }
+     - { role: themes, tags: ['themes'] }
      - { role: sound, tags: ['sound'] }
      - { role: amdgpu, tags: ['amdgpu'], when: "options.amdgpu == 'true'" }
      - { role: display_manager, tags: ['display_manager'] }

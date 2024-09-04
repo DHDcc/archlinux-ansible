@@ -1,0 +1,32 @@
+- name: install themes.
+  community.general.pacman:
+    name:
+      - nwg-look
+      - papirus-icon-theme
+      - gnome-themes-extra
+    state: present
+  become: true
+
+- name: Set icons theme.
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/icon-theme"
+    value: "'Papirus-Dark'"
+  become: false
+
+- name: Change text font and size.
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/font-name"
+    value: "'Noto Sans 12'"
+  become: false
+
+- name: Set applications theme.
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/gtk-theme"
+    value: "'Adwaita-dark'"
+  become: false 
+
+- name: Set Set cursor size.
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/cursor-size"
+    value: "30"
+  become: false
