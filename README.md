@@ -6,7 +6,7 @@ This playbook will install my [dotfiles](https://github.com/DHDcc/MyHyprland) an
 ## Installation
 
 > [!CAUTION]
-> I'm VERY new to Ansible and IaC in general, so expect some errors...
+> I'm new to Ansible and IaC in general, so expect some errors...
 
 ### 1. Dependencies
 Install the necessary dependencies:
