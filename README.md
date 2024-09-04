@@ -6,12 +6,13 @@ This playbook will install my [dotfiles](https://github.com/DHDcc/MyHyprland) an
 ## Installation
 
 > [!CAUTION]
-> I'm new to Ansible and IaC in general, so expect some errors...
+> I'm new to Ansible and IaC (Infrastructure as Code) in general, so there may be some errors or unexpected behaviors.
+> Please feel free to suggest improvements.
 
 ### 1. Dependencies
 Install the necessary dependencies:
 ```
-sudo pacman -Syu ansible python-psutil git
+sudo pacman -Syu --needed base-devel ansible python-psutil git
 ```
 
 ### 2. Get the repository
