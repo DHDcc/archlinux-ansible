@@ -14,7 +14,7 @@
     mode: 0644
     validate: 'visudo -cf %s'
 
-- name: Install paru using makepkg
+- name: Install "{{ options.aur_helper.name }}" using makepkg
   kewlfft.aur.aur:
     name: "{{ options.aur_helper.name + '-bin' if options.aur_helper.binary == 'true' else options.aur_helper.name }}"
     use: makepkg
