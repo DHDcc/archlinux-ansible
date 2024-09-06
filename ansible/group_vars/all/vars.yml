@@ -36,7 +36,7 @@ hypervisor:
     - openbsd-netcat
     - ebtables
     - python-lxml
-    #- iptables
+    - iptables
     - libguestfs
   service: libvirtd
   groups:
