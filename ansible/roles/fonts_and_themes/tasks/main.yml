@@ -1,11 +1,16 @@
-- name: install themes.
+- name: install fonts and themes.
   community.general.pacman:
-    name:
-      - nwg-look
-      - papirus-icon-theme
-      - gnome-themes-extra
+    name: "{{ fonts.pacman + themes }}"
     state: present
   become: true
+
+- name: Install some fonts with "{{ options.aur_helper.name }}"
+  kewlfft.aur.aur:
+    use: "{{ options.aur_helper.name }}"
+    name: "{{ fonts.aur }}"
+    state: present
+  become: true
+  become_user: aur_builder
 
 - name: Set icons theme.
   community.general.dconf:

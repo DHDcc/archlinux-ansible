@@ -54,6 +54,11 @@ fonts:
     - nerd-fonts-git
     - fontpreview-git
 
+themes:
+  - nwg-look
+  - papirus-icon-theme
+  - gnome-themes-extra
+
 gamming_packages:
   pacman:
     - steam

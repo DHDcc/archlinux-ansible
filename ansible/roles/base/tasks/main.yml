@@ -1,12 +1,12 @@
-- name: install main desktop packages whith pacman
+- name: install main desktop packages with pacman
   community.general.pacman:
-    name: "{{ base_packages.pacman + hypr_ecosystem.pacman + terminal_packages.pacman + fonts.pacman }}"
+    name: "{{ base_packages.pacman + hypr_ecosystem.pacman + terminal_packages.pacman }}"
     state: present
   become: true
 
-- name: install main desktop packages whith "{{ options.aur_helper.name }}"
+- name: install main desktop packages with "{{ options.aur_helper.name }}"
   kewlfft.aur.aur:
-    name: "{{ base_packages.aur + hypr_ecosystem.aur + terminal_packages.aur + fonts.aur }}"
+    name: "{{ base_packages.aur + hypr_ecosystem.aur + terminal_packages.aur }}"
     use: "{{ options.aur_helper.name }}"
     state: present
   become: true
