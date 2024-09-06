@@ -1,37 +1,49 @@
-   - name: Remove conflicting packages
-     community.general.pacman:
-       name: 
-         - iptables
-         - iptables-nft
-       state: absent
-       force: true
+- name: Check if the CPU supports virtualization
+  shell: "grep -Ec '(vmx|svm)' /proc/cpuinfo"
+  register: virtualization_support
+  changed_when: false
+  become: false
 
-   - name: Install qemu/virtmanager
-     community.general.pacman:
-       name: "{{ hypervisor.packages }}"
-       state: present
+- name: Remove conflicting packages
+  community.general.pacman:
+    name: 
+      - iptables
+      - iptables-nft
+    state: absent
+    force: true
+  when: virtualization_support.stdout | int > 0
 
-   - name: Enable/start service
-     ansible.builtin.systemd_service:
-       name: "{{ hypervisor.service }}"
-       state: started
-       enabled: yes
+- name: Install qemu/virtmanager
+  community.general.pacman:
+    name: "{{ hypervisor.packages }}"
+    state: present
+  when: virtualization_support.stdout | int > 0
+
+- name: Enable/start service
+  ansible.builtin.systemd_service:
+    name: "{{ hypervisor.service }}"
+    state: started
+    enabled: yes
+  when: virtualization_support.stdout | int > 0
    
-   - name: Start and autostart default network
-     community.libvirt.virt_net:
-       name: default
-       state: active
-       autostart: true
+- name: Start and autostart default network
+  community.libvirt.virt_net:
+    name: default
+    state: active
+    autostart: true
+  when: virtualization_support.stdout | int > 0
 
-   - name: Add user to the libvirt and kvm group
-     ansible.builtin.user:
-       name: "{{ user.name }}"
-       groups: "{{ hypervisor.groups }}"
-       append: yes
-     notify: restart libvirtd
+- name: Add user to the libvirt and kvm group
+  ansible.builtin.user:
+    name: "{{ user.name }}"
+    groups: "{{ hypervisor.groups }}"
+    append: yes
+  notify: restart libvirtd
+  when: virtualization_support.stdout | int > 0
 
-   - name: Change firewall backend for libvirt
-     ansible.builtin.lineinfile:
-       path: "/etc/libvirt/network.conf"
-       search_string: "firewall_backend ="
-       line: 'firewall_backend = "iptables"'
+- name: Change firewall backend for libvirt
+  ansible.builtin.lineinfile:
+    path: "/etc/libvirt/network.conf"
+    search_string: "firewall_backend ="
+    line: 'firewall_backend = "iptables"'
+  when: virtualization_support.stdout | int > 0
