@@ -1,0 +1,7 @@
+- ansible.builtin.import_tasks: pacman.yml
+
+- ansible.builtin.import_tasks: aur_helper.yml
+
+- ansible.builtin.import_tasks: user_directorys.yml
+
+

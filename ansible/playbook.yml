@@ -8,18 +8,14 @@
 
 
    roles:
-     - { role: pacman, tags: ['pacman'] }
-     - { role: user_directorys, tags: ['user_directorys'] }
-     - { role: aur_helper, tags: ['aur_helper'] }
+     - { role: presetup, tags: ['presetup'] }
      - { role: dotfiles, tags: ['dotfiles'] }
+     - { role: system, tags: ['system'] }
      - { role: base, tags: ['base'], when: "options.full_installation == 'false'" }
      #- { role: full_install, tags: ['full_install'], when: "options.full_installation == 'true'" }
      - { role: themes, tags: ['themes'] }
      - { role: sound, tags: ['sound'] }
-     - { role: amdgpu, tags: ['amdgpu'], when: "options.amdgpu == 'true'" }
-     - { role: display_manager, tags: ['display_manager'] }
      - { role: hypervisor, tags: ['hypervisor'], when: "options.hypervisor == 'true'" }
      - { role: games, tags: ['games'], when: "options.gamming_packages == 'true'" }
-     - { role: firewall, tags: ['firewall'], when: "options.firewall == 'true'" }
      - { role: cleanup, tags: ['cleanup'] }
   
