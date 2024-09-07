@@ -14,11 +14,13 @@
     mode: 0644
     validate: 'visudo -cf %s'
 
-- name: Changing MAKEFLAGS to speed up compilation.
-  ansible.builtin.lineinfile:
-    path: /etc/makepkg.conf
-    search_string: '#MAKEFLAGS='
-    line: 'MAKEFLAGS="-j8"'
+- name: Copy makepkg config
+  ansible.builtin.copy:
+    src: ../files/makepkg.conf
+    dest: /etc/makepkg.conf
+    owner: root
+    group: root
+    mode: 0644
   become: true
 
 - name: Install "{{ options.aur_helper.name }}" using makepkg
