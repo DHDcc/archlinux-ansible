@@ -78,6 +78,7 @@ terminal_packages:
   pacman:
     - kitty
     - zsh
+    - pacman-contrib
     - lsd
     - zoxide
     - ranger
