@@ -1,4 +1,4 @@
-- name: install fonts and themes.
+- name: Install fonts and themes.
   community.general.pacman:
     name: "{{ fonts.pacman + themes }}"
     state: present
@@ -18,7 +18,7 @@
     value: "'Papirus-Dark'"
   become: false
 
-- name: Change text font and size.
+- name: Set text font and size.
   community.general.dconf:
     key: "/org/gnome/desktop/interface/font-name"
     value: "'Noto Sans 12'"
@@ -30,7 +30,13 @@
     value: "'Adwaita-dark'"
   become: false 
 
-- name: Set Set cursor size.
+- name: Set color scheme preference to dark.
+  community.general.dconf:
+    key: "/org/gnome/desktop/interface/color-scheme"
+    value: "'prefer-dark'"
+  become: false 
+
+- name: Set cursor size.
   community.general.dconf:
     key: "/org/gnome/desktop/interface/cursor-size"
     value: "30"
