@@ -28,6 +28,11 @@ cd archlinux-ansible/ansible
 ansible-galaxy collection install -r requirements.yml
 ansible-playbook --ask-become-pass playbook.yml
 ```
+> [!NOTE]
+> This will install [nerd-fonts-git](https://aur.archlinux.org/packages/nerd-fonts-git) and this package is almost 6 GiB in size.
+>
+> If you want to remove it, go to ```archlinux-ansible/ansible/group_vars/all/vars.yml``` and remove it from the fonts section.
+
 > [!TIP]
 > you can disable/enable some options by editing: ```archlinux-ansible/ansible/group_vars/all/options.yml```.
 > 
