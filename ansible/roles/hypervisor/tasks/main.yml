@@ -4,12 +4,9 @@
   changed_when: false
   become: false
 
-- name: Warn if virtualization is not supported
+- name: Warn if virtualization is not enabled
   ansible.builtin.debug:
-    msg: |
-      Virtualization not enabled virtualization or not supported. 
-      Go to bios settings and enable VT-x (Virtualization Technology Extension) for Intel processor 
-      and AMD-V for AMD processor.
+    msg: "Virtualization not enabled in BIOS. Skipping play..."
   when: cpu_virtualization_support.stdout | int == 0
 
 - name: Remove conflicting packages
