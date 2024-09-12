@@ -157,6 +157,7 @@ base_packages:
     - polkit-gnome
     - network-manager-applet
     - qbittorrent
+    - engrampa
     - obs-studio
     - thunar
     - gnome-disk-utility
