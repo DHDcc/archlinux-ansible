@@ -18,7 +18,7 @@
     - { key: 'net.ipv6.conf.default.disable_ipv6', value: '1' }
     - { key: 'net.ipv6.conf.lo.disable_ipv6', value: '1' }
 
-- name: Disable ipv6 rule in ufw
+- name: Disable ipv6 rule in ufw.
   ansible.builtin.lineinfile:
     path: /etc/default/ufw
     regexp: '^IPV6=yes'

@@ -1,10 +1,10 @@
-- name: Install gamming packages whith pacman
+- name: Install gamming packages.
   community.general.pacman:
     name: "{{ gamming_packages.pacman }}"
     state: present
   become: true
 
-- name: Install gamming packages with "{{ options.aur_helper.name }}"
+- name: Install gamming packages with "{{ options.aur_helper.name }}".
   kewlfft.aur.aur:
     use: "{{ options.aur_helper.name }}"
     name: "{{ gamming_packages.aur }}"

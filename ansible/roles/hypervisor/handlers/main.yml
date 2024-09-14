@@ -1,5 +1,5 @@
-- name: restart libvirtd
-  service:
+- name: restart libvirtd service.
+  ansible.builtin.systemd_service:
     name: "{{ hypervisor.service }}"
     state: restarted
   become: true
