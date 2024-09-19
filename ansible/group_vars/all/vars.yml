@@ -54,7 +54,6 @@ hypervisor:
 fonts:
   pacman:
     - powerline-fonts
-    - papirus-icon-theme
     - ttf-linux-libertine
     - noto-fonts-emoji
     - noto-fonts-extra
@@ -160,6 +159,7 @@ base_packages:
     - engrampa
     - obs-studio
     - thunar
+    - tumbler
     - gnome-disk-utility
     - thunar-archive-plugin
     - xdg-desktop-portal
@@ -168,7 +168,7 @@ base_packages:
   aur:
    - rofi-lbonn-wayland-git
    - wlogout 
-   - freetube-bin
+   #- freetube-bin
    - pika-backup
    - onlyoffice-bin
    - thunar-shares-plugin
