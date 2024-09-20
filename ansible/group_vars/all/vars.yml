@@ -50,6 +50,9 @@ hypervisor:
   groups:
     - libvirt
     - kvm
+    - libvirt-qemu
+    - input
+    - disk
 
 fonts:
   pacman:

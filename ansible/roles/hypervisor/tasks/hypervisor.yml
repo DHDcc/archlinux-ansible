@@ -23,7 +23,7 @@
     state: active
     autostart: true
 
-- name: Add user to the libvirt and kvm group
+- name: Add user to libvirt to allow access to VMs.
   ansible.builtin.user:
     name: "{{ user.name }}"
     groups: "{{ hypervisor.groups }}"
