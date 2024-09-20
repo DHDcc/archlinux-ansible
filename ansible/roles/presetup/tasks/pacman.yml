@@ -1,6 +1,6 @@
 - name: copy pacman.conf
   ansible.builtin.copy:
-    src: ../files/pacman.conf
+    src: pacman.conf
     dest: /etc/pacman.conf
     owner: root
     group: root

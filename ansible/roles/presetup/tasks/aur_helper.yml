@@ -16,7 +16,7 @@
 
 - name: Copy makepkg config
   ansible.builtin.copy:
-    src: ../files/makepkg.conf
+    src: makepkg.conf
     dest: /etc/makepkg.conf
     owner: root
     group: root
