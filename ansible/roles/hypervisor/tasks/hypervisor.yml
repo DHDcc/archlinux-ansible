@@ -28,7 +28,6 @@
     name: "{{ user.name }}"
     groups: "{{ hypervisor.groups }}"
     append: yes
-  notify: restart libvirtd
 
 - name: Change firewall backend for libvirt
   ansible.builtin.lineinfile:
