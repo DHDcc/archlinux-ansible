@@ -69,7 +69,7 @@ themes:
   - papirus-icon-theme
   - gnome-themes-extra
 
-gamming_packages:
+gaming_packages:
   pacman:
     - steam
     - lutris

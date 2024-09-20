@@ -16,6 +16,6 @@
      - { role: fonts_and_themes, tags: ['fonts_and_themes'] }
      - { role: sound, tags: ['sound'] }
      - { role: hypervisor, tags: ['hypervisor'], when: "options.hypervisor == 'true'" }
-     - { role: games, tags: ['games'], when: "options.gamming_packages == 'true'" }
+     - { role: games, tags: ['games'], when: "options.gaming_packages == 'true'" }
      - { role: cleanup, tags: ['cleanup'] }
   
