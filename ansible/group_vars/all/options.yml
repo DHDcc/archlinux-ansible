@@ -1,9 +1,9 @@
 options:
-  full_installation: "false" # NEED TO CREATE ROLE, DO NOT CHANGE THIS OPTION !!!
-  amdgpu: "true" # Set 'amdgpu' to 'false' if you have a Nvidia gpu.
+  full_installation: false # NEED TO CREATE ROLE, DO NOT CHANGE THIS OPTION !!!
+  amdgpu: true # Set 'amdgpu' to 'false' if you have a Nvidia gpu.
   aur_helper: 
     name: "paru" # Pick your favarite aur helper. 
-    binary: "true" 
-  hypervisor: "true" # Set 'hypervisor' to 'false' if you're using a vm or if you don't want to install qemu/virtmanager.
-  gaming_packages: "true"
-  firewall: "true" # Set 'firewall' to 'false' if you don't want to install ufw.
+    binary: true 
+  hypervisor: true # Set 'hypervisor' to 'false' if you're using a vm or if you don't want to install qemu/virtmanager.
+  gaming_packages: true
+  firewall: true # Set 'firewall' to 'false' if you don't want to install ufw.

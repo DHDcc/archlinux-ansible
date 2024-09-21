@@ -25,7 +25,7 @@
 
 - name: Install "{{ options.aur_helper.name }}" using makepkg
   kewlfft.aur.aur:
-    name: "{{ options.aur_helper.name + '-bin' if options.aur_helper.binary == 'true' else options.aur_helper.name }}"
+    name: "{{ options.aur_helper.name + '-bin' if options.aur_helper.binary else options.aur_helper.name }}"
     use: makepkg
     state: present
   become: true

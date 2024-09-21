@@ -36,7 +36,7 @@ ansible-playbook --ask-become-pass playbook.yml
 > [!TIP]
 > you can disable/enable some options by editing: ```archlinux-ansible/ansible/group_vars/all/options.yml```.
 > 
-> Example: ```amdgpu: "true" # Set 'amdgpu' to 'false' if you have a Nvidia gpu.```
+> Example: ```amdgpu: true # Set 'amdgpu' to 'false' if you have a Nvidia gpu.```
 
 ### 4. Reboot
 To complete the installation, reboot your system:
