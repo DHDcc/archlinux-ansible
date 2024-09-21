@@ -1,8 +1,8 @@
 - ansible.builtin.import_tasks: amdgpu.yml
-  when: "options.amdgpu == 'true'"
+  when: options.amdgpu
 
 - ansible.builtin.import_tasks: display_manager.yml
 
 - ansible.builtin.import_tasks: firewall.yml
-  when: "options.firewall == 'true'"
+  when: options.firewall
 
