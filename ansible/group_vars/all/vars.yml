@@ -74,7 +74,8 @@ gaming_packages:
     - steam
     - lutris
     - gamemode
-    - mangohud 
+    - mangohud
+    - wine
   aur: heroic-games-launcher-bin
 
 firewall:
@@ -92,12 +93,14 @@ terminal_packages:
     - lsd
     - zoxide
     - ranger
+    - zathura
     - fzf
     - imv
     - yt-dlp
     - neofetch
     - ncdu
     - bat
+    - imagemagick
     - btop
     - p7zip
     - unzip
@@ -155,10 +158,14 @@ base_packages:
     - waybar
     - swaync
     - qt5ct
+    - cronie
+    - qt6-wayland
+    - zathura-pdf-mupdf
     - qt5-wayland
     - polkit-gnome
     - network-manager-applet
     - qbittorrent
+    - swappy 
     - engrampa
     - obs-studio
     - thunar
@@ -171,6 +178,7 @@ base_packages:
   aur:
    - rofi-lbonn-wayland-git
    - wlogout 
+   - preload
    #- freetube-bin
    - pika-backup
    - onlyoffice-bin
