@@ -5,17 +5,45 @@
    connection: local
    gather_facts: false
    become: true
-
-
    roles:
-     - { role: presetup, tags: ['presetup'] }
-     - { role: dotfiles, tags: ['dotfiles'] }
-     - { role: system, tags: ['system'] }
-     - { role: base, tags: ['base'], when: options.full_installation == false }
+     - role: presetup 
+       tags: 
+         - presetup
+
+     - role: dotfiles
+       tags: 
+         - dotfiles
+
+     - role: system 
+       tags: 
+         - system
+
+     - role: base 
+       tags: 
+         - base 
+       when: options.full_installation == false 
+
      #- { role: full_install, tags: ['full_install'], when: options.full_installation }
-     - { role: fonts_and_themes, tags: ['fonts_and_themes'] }
-     - { role: sound, tags: ['sound'] }
-     - { role: hypervisor, tags: ['hypervisor'], when: options.hypervisor }
-     - { role: games, tags: ['games'], when: options.gaming_packages }
-     - { role: cleanup, tags: ['cleanup'] }
+
+     - role: fonts_and_themes 
+       tags: 
+         - fonts_and_themes
+
+     - role: sound 
+       tags: 
+         - sound
+
+     - role: hypervisor 
+       tags: 
+         - hypervisor 
+       when: options.hypervisor 
+
+     - role: games 
+       tags: 
+         - games 
+       when: options.gaming_packages 
+
+     - role: cleanup 
+       tags: 
+         - cleanup
   
