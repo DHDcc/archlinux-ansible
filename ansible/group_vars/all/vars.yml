@@ -178,7 +178,6 @@ base_packages:
     - xdg-desktop-portal-gtk
   aur:
    - rofi-lbonn-wayland-git
-   - wlogout 
    - preload
    #- freetube-bin
    - pika-backup
