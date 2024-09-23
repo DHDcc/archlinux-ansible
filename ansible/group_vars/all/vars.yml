@@ -159,6 +159,7 @@ base_packages:
     - swaync
     - qt5ct
     - cronie
+    - gnome-keyring 
     - qt6-wayland
     - zathura-pdf-mupdf
     - qt5-wayland
