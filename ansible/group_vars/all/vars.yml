@@ -22,9 +22,9 @@ dotfiles:
 
 sound:
   packages:
+    - wireplumber
     - pipewire
     - pipewire-pulse
-    - wireplumber
     - flac
     - pavucontrol
   services:
