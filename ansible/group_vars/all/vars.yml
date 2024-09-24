@@ -180,7 +180,6 @@ base_packages:
    - rofi-lbonn-wayland-git
    - preload
    #- freetube-bin
-   - pika-backup
    - onlyoffice-bin
    - thunar-shares-plugin
    - vscodium-bin
