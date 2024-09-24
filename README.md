@@ -28,15 +28,20 @@ cd archlinux-ansible/ansible
 ansible-galaxy collection install -r requirements.yml
 ansible-playbook --ask-become-pass playbook.yml
 ```
-> [!NOTE]
-> This will install [nerd-fonts-git](https://aur.archlinux.org/packages/nerd-fonts-git) and this package is almost 6 GiB in size.
->
-> If you want to remove it, go to ```archlinux-ansible/ansible/group_vars/all/vars.yml``` and remove it from the fonts section.
 
 > [!TIP]
 > you can disable/enable some options by editing: ```archlinux-ansible/ansible/group_vars/all/options.yml```.
 > 
-> Example: ```amdgpu: true # Set 'amdgpu' to 'false' if you have a Nvidia gpu.```
+> Example:
+> ```
+> aur_helper:
+>   name: "paru" # Pick your favarite aur helper.
+>   binary: true
+>```
+
+> [!NOTE]
+>
+> If you're using a Nvidia gpu, you need to set the ```amdgpu``` option to ```false``` to avoid downloading Amd packages.
 
 ### 4. Reboot
 To complete the installation, reboot your system:
