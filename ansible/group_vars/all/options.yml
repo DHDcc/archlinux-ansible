@@ -4,6 +4,6 @@ options:
   aur_helper: 
     name: "paru" # Pick your favarite aur helper. 
     binary: true 
-  hypervisor: true # Set 'hypervisor' to 'false' if you're using a vm or if you don't want to install qemu/virtmanager.
+  hypervisor: false # Set 'hypervisor' to 'true' if you want to install Qemu and VirtManager.
   gaming_packages: true
   firewall: true # Set 'firewall' to 'false' if you don't want to install ufw.
