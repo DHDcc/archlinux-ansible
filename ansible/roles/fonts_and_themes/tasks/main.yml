@@ -41,3 +41,18 @@
     key: "/org/gnome/desktop/interface/cursor-size"
     value: "30"
   become: false
+
+- name: copy onetime wallpaper script.
+  ansible.builtin.copy:
+    src: "onetime.sh"
+    dest: "{{ user.directory }}/.scripts"
+    owner: "{{ user.name }}"
+    group: "{{ user.name }}"
+    mode: '0700'
+  become: false
+
+- name: add onetime script in hyprland config file.
+  ansible.builtin.lineinfile:
+    dest: "{{ user.directory }}/.config/hypr/hyprland.conf"
+    line: "exec-once = $HOME/.scripts/onetime.sh"
+  become: false
