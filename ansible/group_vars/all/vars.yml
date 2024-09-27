@@ -76,7 +76,9 @@ gaming_packages:
     - gamemode
     - mangohud
     - wine
-  aur: heroic-games-launcher-bin
+  aur: 
+    - heroic-games-launcher-bin
+    - vesktop-bin
 
 firewall:
   allow_ports:
@@ -158,6 +160,8 @@ base_packages:
     - waybar
     - swaync
     - qt5ct
+    - playerctl
+    - imagemagick
     - cronie
     - gnome-keyring 
     - qt6-wayland
@@ -179,7 +183,7 @@ base_packages:
   aur:
    - rofi-lbonn-wayland-git
    - preload
-   #- freetube-bin
+   - localsend-bin
    - onlyoffice-bin
    - thunar-shares-plugin
    - vscodium-bin
