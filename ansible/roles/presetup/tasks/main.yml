@@ -1,3 +1,9 @@
+- name: change user shell to zsh.
+  ansible.builtin.user:
+    name: "{{ user.name }}"
+    shell: /bin/zsh
+  become: true
+
 - ansible.builtin.import_tasks: pacman.yml
 
 - ansible.builtin.import_tasks: aur_helper.yml
