@@ -35,7 +35,7 @@ ansible-playbook --ask-become-pass playbook.yml
 > Example:
 > ```
 > aur_helper:
->   name: "paru" # Pick your favarite aur helper.
+>   name: "paru" # Pick your favorite aur helper.
 >   binary: true
 >```
 
