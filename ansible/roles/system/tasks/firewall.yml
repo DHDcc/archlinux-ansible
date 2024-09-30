@@ -1,12 +1,12 @@
 ---
 
-- name: Install ufw
+- name: Install ufw.
   community.general.pacman:
     name: ufw
     state: present
   become: true
 
-- name: Disable IPv6 using sysctl
+- name: Disable IPv6.
   ansible.posix.sysctl:
     name: "{{ item.key }}"
     value: "{{ item.value }}"
@@ -24,7 +24,7 @@
     regexp: '^IPV6=yes'
     line: IPV6=no
 
-- name: Allow ports (tcp)
+- name: Allow ports (tcp).
   community.general.ufw:
     rule: allow
     port: "{{ item }}"
@@ -32,33 +32,33 @@
   loop: "{{ firewall.allow_ports }}"
   become: true
 
-- name: Allow ports (udp)
+- name: Allow ports (udp).
   community.general.ufw:
     rule: allow
     port: "{{ firewall.allow_ports[-1] }}"
     proto: udp
   become: true
 
-- name: Deny ports 
+- name: Deny ports.
   community.general.ufw:
     rule: deny
     port: "{{ firewall.deny_port }}"
     proto: tcp
   become: true
 
-- name: Set ufw default policy to deny incomming
+- name: Set ufw default policy to deny incomming.
   community.general.ufw:
     direction: incoming
     policy: deny
   become: true
 
-- name: Set ufw default policy to allow outgoing trafic
+- name: Set ufw default policy to allow outgoing trafic.
   community.general.ufw:
     direction: outgoing
     policy: allow
   become: true
 
-- name: Enable ufw
+- name: Enable ufw.
   community.general.ufw:
     state: enabled
   become: true

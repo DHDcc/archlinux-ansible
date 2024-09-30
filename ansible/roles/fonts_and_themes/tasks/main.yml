@@ -4,7 +4,7 @@
     state: present
   become: true
 
-- name: Install some fonts with "{{ options.aur_helper.name }}"
+- name: Install fonts (aur).
   kewlfft.aur.aur:
     use: "{{ options.aur_helper.name }}"
     name: "{{ fonts.aur }}"
@@ -42,7 +42,7 @@
     value: "30"
   become: false
 
-- name: copy onetime wallpaper script.
+- name: copy onetime script.
   ansible.builtin.copy:
     src: "onetime.sh"
     dest: "{{ user.directory }}/.scripts"

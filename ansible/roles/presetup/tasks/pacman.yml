@@ -1,4 +1,4 @@
-- name: copy pacman.conf
+- name: copy pacman.conf.
   ansible.builtin.copy:
     src: pacman.conf
     dest: /etc/pacman.conf

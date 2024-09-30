@@ -1,4 +1,4 @@
-- name: Remove conflicting packages
+- name: Remove conflicting packages.
   community.general.pacman:
     name: 
       - iptables
@@ -6,18 +6,18 @@
     state: absent
     force: true
 
-- name: Install Qemu and Virt-Manager
+- name: Install Qemu and Virt-Manager.
   community.general.pacman:
     name: "{{ hypervisor.packages }}"
     state: present
 
-- name: Enable/start service
+- name: Enable and start services.
   ansible.builtin.systemd_service:
     name: "{{ hypervisor.service }}"
     state: started
     enabled: yes
    
-- name: Start and autostart default network
+- name: Start and autostart default network.
   community.libvirt.virt_net:
     name: default
     state: active
@@ -29,7 +29,7 @@
     groups: "{{ hypervisor.groups }}"
     append: yes
 
-- name: Change firewall backend for libvirt
+- name: Change firewall backend for libvirt.
   ansible.builtin.lineinfile:
     path: "/etc/libvirt/network.conf"
     search_string: "firewall_backend ="

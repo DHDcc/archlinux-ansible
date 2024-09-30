@@ -4,7 +4,7 @@
     state: present
   become: true
 
-- name: Install gaming packages with "{{ options.aur_helper.name }}".
+- name: Install gaming packages (aur).
   kewlfft.aur.aur:
     use: "{{ options.aur_helper.name }}"
     name: "{{ gaming_packages.aur }}"

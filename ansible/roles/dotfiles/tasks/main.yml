@@ -6,21 +6,21 @@
     state: present
   become: true
 
-- name: Clone dotfiles with git.
+- name: Clone dotfiles.
   ansible.builtin.git:
     repo: "{{ dotfiles.url }}"
     dest: "{{ dotfiles.destination }}"
     force: true
   become: false
 
-- name: Copy .config.
+- name: Copy configs directory.
   ansible.posix.synchronize: 
     src: "{{ dotfiles.destination }}/.config/"
     dest:  "{{ user.directory }}/.config/"
     recursive: true
   become: false
 
-- name: Copy .scrpits directory and change permissions.
+- name: Copy scrpits directory and change permissions.
   ansible.posix.synchronize: 
     src: "{{ dotfiles.destination }}/.scripts"
     dest:  "{{ user.directory }}"

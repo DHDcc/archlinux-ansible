@@ -1,11 +1,11 @@
-- name: Create the `aur_builder` user
+- name: Create the `aur_builder` user.
   become: true
   ansible.builtin.user:
     name: aur_builder
     create_home: true
     group: wheel
 
-- name: Allow the `aur_builder` user to run `sudo pacman` without a password
+- name: Allow the `aur_builder` user to run `sudo pacman` without a password.
   become: true
   ansible.builtin.lineinfile:
     path: /etc/sudoers.d/11-install-aur_builder
@@ -14,7 +14,7 @@
     mode: 0644
     validate: 'visudo -cf %s'
 
-- name: Copy makepkg config
+- name: Copy makepkg config file.
   ansible.builtin.copy:
     src: makepkg.conf
     dest: /etc/makepkg.conf
@@ -23,7 +23,7 @@
     mode: 0644
   become: true
 
-- name: Install "{{ options.aur_helper.name }}" using makepkg
+- name: Install "{{ options.aur_helper.name }}".
   kewlfft.aur.aur:
     name: "{{ options.aur_helper.name + '-bin' if options.aur_helper.binary else options.aur_helper.name }}"
     use: makepkg

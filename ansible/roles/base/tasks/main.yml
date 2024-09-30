@@ -4,7 +4,7 @@
     state: present
   become: true
 
-- name: install main desktop packages with "{{ options.aur_helper.name }}".
+- name: install main desktop packages (aur).
   kewlfft.aur.aur:
     name: "{{ base_packages.aur + hypr_ecosystem.aur + terminal_packages.aur }}"
     use: "{{ options.aur_helper.name }}"
