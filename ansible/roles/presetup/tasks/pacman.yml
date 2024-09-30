@@ -1,4 +1,4 @@
-- name: copy pacman.conf.
+- name: Copy pacman.conf.
   ansible.builtin.copy:
     src: pacman.conf
     dest: /etc/pacman.conf
@@ -8,7 +8,7 @@
   become: true
   register: pacman_config
 
-- name: Reload pacman 
+- name: Reload pacman.
   community.general.pacman:
     update_cache: true
     upgrade: true

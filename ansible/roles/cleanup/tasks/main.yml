@@ -1,13 +1,6 @@
-- name: remove the 'aur_builder' user.
-  ansible.builtin.user: 
-    name: aur_buider
-    state: absent
-    remove: yes
-  become: true
-
-- name: remove sudoer file of the 'aur_builder' user.
+- name: remove sudoer file of "{{ user.name }}".
   ansible.builtin.file:
-    path: /etc/sudoers.d/11-install-aur_builder
+    path: /etc/sudoers.d/11-"{{ user.name }}"-nopasswd
     state: absent
   become: true
 

@@ -10,7 +10,7 @@
     name: "{{ fonts.aur }}"
     state: present
   become: true
-  become_user: aur_builder
+  become_user: "{{ user.name }}"
 
 - name: Set icons theme.
   community.general.dconf:

@@ -12,7 +12,7 @@
     name: lact
     state: present
   become: true
-  become_user: aur_builder
+  become_user: "{{ user.name }}"
    
 - name: Enable lact service.
   ansible.builtin.systemd_service:
