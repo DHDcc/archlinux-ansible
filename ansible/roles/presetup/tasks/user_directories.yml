@@ -5,7 +5,7 @@
   become: true
   register: user_dirs
 
-- name: Setup user directorys
+- name: Setup user directories
   ansible.builtin.command: /usr/bin/xdg-user-dirs-update
   become: false
   when: user_dirs.changed
