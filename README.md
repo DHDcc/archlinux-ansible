@@ -30,7 +30,7 @@ ansible-playbook --ask-become-pass playbook.yml
 ```
 
 > [!TIP]
-> you can disable/enable some options by editing: ```archlinux-ansible/ansible/group_vars/all/options.yml```.
+> you can disable/enable some options by editing ```archlinux-ansible/ansible/group_vars/all/options.yml```.
 > 
 > Example:
 > ```
