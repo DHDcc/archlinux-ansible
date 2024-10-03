@@ -16,14 +16,14 @@
 - name: Copy configs directory.
   ansible.posix.synchronize: 
     src: "{{ dotfiles.destination }}/.config/"
-    dest:  "{{ user.directory }}/.config/"
+    dest:  "{{ user.home }}/.config/"
     recursive: true
   become: false
 
 - name: Copy scrpits directory and change permissions.
   ansible.posix.synchronize: 
     src: "{{ dotfiles.destination }}/.scripts"
-    dest:  "{{ user.directory }}"
+    dest:  "{{ user.home }}"
     recursive: true
     rsync_opts:
       - "--chmod=700"

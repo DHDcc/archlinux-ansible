@@ -12,7 +12,7 @@
 
 - name: Find all directories in the home directory.
   ansible.builtin.find:
-    paths: "{{ user.directory }}"
+    paths: "{{ user.home }}"
     file_type: directory
     recurse: no
   register: found_directories
