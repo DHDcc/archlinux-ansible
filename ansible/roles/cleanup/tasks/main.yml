@@ -1,6 +1,0 @@
-- name: remove sudoer file of "{{ user.name }}".
-  ansible.builtin.file:
-    path: /etc/sudoers.d/11-"{{ user.name }}"-nopasswd
-    state: absent
-  become: true
-

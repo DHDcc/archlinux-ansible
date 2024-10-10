@@ -1,0 +1,17 @@
+---
+
+-  name: Archlinux post-installation - Presetup
+   hosts: host
+   connection: local
+   gather_facts: false
+   become: true
+   vars_files:
+     - ../group_vars/all/vars.yml
+     - ../group_vars/all/options.yml
+   tasks:
+     - ansible.builtin.import_tasks: pacman.yml
+     - ansible.builtin.import_tasks: aur_helper.yml
+     - ansible.builtin.import_tasks: user_directories.yml
+     - ansible.builtin.import_tasks: shell.yml
+
+

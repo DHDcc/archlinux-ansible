@@ -1,0 +1,69 @@
+---
+
+- name: Archlinux post-installation - Fonts_And_Themes
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars_files:
+    - ../group_vars/all/vars.yml
+    - ../group_vars/all/options.yml
+  tasks:
+
+    - name: Install fonts and themes.
+      community.general.pacman:
+        name: "{{ fonts.pacman + themes }}"
+        state: present
+      become: true
+
+    - name: Install fonts (aur).
+      kewlfft.aur.aur:
+        use: "{{ options.aur_helper.name }}"
+        name: "{{ fonts.aur }}"
+        state: present
+      become: true
+      become_user: "{{ user.name }}"
+
+    - name: Set icons theme.
+      community.general.dconf:
+        key: "/org/gnome/desktop/interface/icon-theme"
+        value: "'Papirus-Dark'"
+      become: false
+
+    - name: Set text font and size.
+      community.general.dconf:
+        key: "/org/gnome/desktop/interface/font-name"
+        value: "'Noto Sans 12'"
+      become: false
+
+    - name: Set applications theme.
+      community.general.dconf:
+        key: "/org/gnome/desktop/interface/gtk-theme"
+        value: "'Adwaita-dark'"
+      become: false 
+
+    - name: Set color scheme preference to dark.
+      community.general.dconf:
+        key: "/org/gnome/desktop/interface/color-scheme"
+        value: "'prefer-dark'"
+      become: false 
+
+    - name: Set cursor size.
+      community.general.dconf:
+        key: "/org/gnome/desktop/interface/cursor-size"
+        value: "30"
+      become: false
+
+    - name: copy onetime script.
+      ansible.builtin.copy:
+        src: "onetime.sh"
+        dest: "{{ user.home }}/.scripts"
+        owner: "{{ user.name }}"
+        group: "{{ user.name }}"
+        mode: '0700'
+      become: false
+
+    - name: add onetime script in hyprland config file.
+      ansible.builtin.lineinfile:
+        dest: "{{ user.home }}/.config/hypr/hyprland.conf"
+        line: "exec-once = $HOME/.scripts/onetime.sh"
+      become: false

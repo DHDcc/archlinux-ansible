@@ -1,4 +1,0 @@
-- ansible.builtin.import_tasks: check_virtualization.yml
-
-- ansible.builtin.import_tasks: hypervisor.yml
-  when: cpu_virtualization_support.stdout | int > 0
