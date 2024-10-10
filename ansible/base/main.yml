@@ -1,0 +1,23 @@
+---
+
+-  name: Archlinux post-installation - Base
+   hosts: host
+   connection: local
+   gather_facts: false
+   become: true
+   vars_files:
+     - ../group_vars/all/vars.yml
+     - ../group_vars/all/options.yml
+   tasks:
+
+     - name: install main desktop packages.
+       community.general.pacman:
+         name: "{{ base_packages.pacman + hypr_ecosystem.pacman + terminal_packages.pacman }}"
+         state: present
+
+     - name: install main desktop packages (aur).
+       kewlfft.aur.aur:
+         name: "{{ base_packages.aur + hypr_ecosystem.aur + terminal_packages.aur }}"
+         use: "{{ options.aur_helper.name }}"
+         state: present
+       become_user: "{{ user.name }}"

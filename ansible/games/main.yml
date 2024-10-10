@@ -1,0 +1,23 @@
+---
+
+-  name: Archlinux post-installation - Games
+   hosts: host
+   connection: local
+   gather_facts: false
+   become: true
+   vars_files:
+     - ../group_vars/all/vars.yml
+     - ../group_vars/all/options.yml
+   tasks:
+
+     - name: Install gaming packages.
+       community.general.pacman:
+         name: "{{ gaming_packages.pacman }}"
+         state: present
+
+     - name: Install gaming packages (aur).
+       kewlfft.aur.aur:
+         use: "{{ options.aur_helper.name }}"
+         name: "{{ gaming_packages.aur }}"
+         state: present
+       become_user: "{{ user.name }}"

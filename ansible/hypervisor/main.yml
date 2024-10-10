@@ -1,0 +1,16 @@
+---
+
+-  name: Archlinux post-installation - Hypervisor
+   hosts: host
+   connection: local
+   gather_facts: false
+   become: true
+   vars_files:
+     - ../group_vars/all/vars.yml
+     - ../group_vars/all/options.yml
+   tasks:
+
+     - ansible.builtin.import_tasks: check_virtualization.yml
+
+     - ansible.builtin.import_tasks: hypervisor.yml
+       when: cpu_virtualization_support.stdout | int > 0

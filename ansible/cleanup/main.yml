@@ -1,0 +1,16 @@
+---
+
+-  name: Archlinux post-installation - Cleanup
+   hosts: host
+   connection: local
+   gather_facts: false
+   become: true
+   vars_files:
+     - ../group_vars/all/vars.yml
+   tasks:
+
+     - name: remove sudoer file of "{{ user.name }}".
+       ansible.builtin.file:
+         path: /etc/sudoers.d/11-"{{ user.name }}"-nopasswd
+         state: absent
+

@@ -1,0 +1,20 @@
+---
+
+-  name: Archlinux post-installation - System
+   hosts: host
+   connection: local
+   gather_facts: false
+   become: true
+   vars_files:
+     - ../group_vars/all/vars.yml
+     - ../group_vars/all/options.yml
+   tasks:
+
+     - ansible.builtin.import_tasks: amdgpu.yml
+       when: options.amdgpu
+
+     - ansible.builtin.import_tasks: display_manager.yml
+
+     - ansible.builtin.import_tasks: firewall.yml
+       when: options.firewall
+
