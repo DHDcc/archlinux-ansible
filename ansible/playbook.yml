@@ -19,5 +19,7 @@
 - ansible.builtin.import_playbook: games/main.yml
   when: options.gaming_packages
 
-- ansible.builtin.import_playbook: cleanup/main.yml
+- ansible.builtin.import_playbook: tweaks/main.yml
+  when: options.tweaks
 
+- ansible.builtin.import_playbook: cleanup/main.yml

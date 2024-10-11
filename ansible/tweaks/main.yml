@@ -1,0 +1,108 @@
+---
+
+-  name: Archlinux post-installation - Tweaks
+   hosts: host
+   connection: local
+   gather_facts: false
+   become: true
+   vars_files:
+     - ../group_vars/all/vars.yml
+     - ../group_vars/all/options.yml
+   tasks:
+
+     - name: Enable trim.
+       ansible.builtin.systemd_service:
+         name: fstrim.timer
+         enabled: true
+
+     - name: Change swappiness value.
+       ansible.builtin.copy:
+         dest: "/etc/sysctl.d/99-swappiness.conf"
+         content: "vm.swappiness = 10"
+
+     - name: Disable automatic core dumps.
+       ansible.builtin.copy:
+         dest: "/etc/sysctl.d/50-coredump.conf"
+         content: "kernel.core_pattern=|/bin/false"
+
+     - name: Add boot parameters.
+       ansible.builtin.lineinfile:
+         path: "/etc/default/grub"
+         regexp: '^GRUB_CMDLINE_LINUX_DEFAULT=".*"$'
+         line: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=3 libahci.ignore_sss=1 nowatchdog"'
+       register: grub_config
+
+     - name: Rebuild GRUB configuration.
+       ansible.builtin.command:
+         cmd: grub-mkconfig -o /boot/grub/grub.cfg
+       when: grub_config.changed
+
+     - name: Increase vm.max_map_count.
+       ansible.builtin.copy:
+         dest: "/etc/sysctl.d/80-virtualmemory.conf"
+         content: |
+           vm.max_map_count = 2147483642
+           vm.min_free_kbytes = 1048576
+
+     - name: Change power button behavior.
+       ansible.builtin.lineinfile:
+         path: "/etc/systemd/logind.conf"
+         search_string: "#HandlePowerKey="
+         line: "HandlePowerKey=suspend"
+
+     - name: Create pacman hooks directory.
+       ansible.builtin.file:
+         path: "/etc/pacman.d/hooks"
+         state: directory
+       tags: hooks
+     
+     - name: Copy file to pacman hooks directory.
+       ansible.builtin.copy:
+         src: "95-grub-reinstall.hook"
+         dest: "/etc/pacman.d/hooks"
+         owner: root
+         group: root
+         mode: 0644
+       register: hook
+       tags: hooks
+ 
+     - name: Install preload (aur).
+       kewlfft.aur.aur:
+         name: preload
+         use: "{{ options.aur_helper.name }}"
+         state: present
+       become_user: "{{ user.name }}"
+       tags: speed_up_app_launch
+ 
+     - name: Enable preload.
+       ansible.builtin.systemd_service:
+         name: preload
+         enabled: true
+       tags: speed_up_app_launch
+
+     - name: Install reflector (aur).
+       kewlfft.aur.aur:
+         name: reflector
+         use: "{{ options.aur_helper.name }}"
+         state: present
+       become_user: "{{ user.name }}"
+       register: install_reflector
+       tags: mirrorlist
+
+     - name: Backup old mirror list.
+       ansible.builtin.copy:
+         src: "/etc/pacman.d/mirrorlist"
+         dest: "/etc/pacman.d/mirrorlist.back"
+       tags: mirrorlist
+
+     - name: Fetch the top 10 fastest servers.
+       ansible.builtin.command:
+         cmd: /sbin/reflector --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+       when: install_reflector.changed
+       register: fastest_servers
+       tags: mirrorlist
+
+     - name: Reload pacman.
+       community.general.pacman:
+         update_cache: true
+       when: hook.changed or fastest_servers.changed
