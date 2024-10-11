@@ -8,6 +8,7 @@
    vars_files:
      - ../group_vars/all/vars.yml
      - ../group_vars/all/options.yml
+   tags: hypervisor
    tasks:
 
      - name: Check if the CPU supports virtualization.
