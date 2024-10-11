@@ -7,7 +7,6 @@
   vars_files:
     - ../group_vars/all/vars.yml
     - ../group_vars/all/options.yml
-  tags: fonts_and_themes
   tasks:
 
     - name: Install fonts and themes.

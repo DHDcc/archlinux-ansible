@@ -8,7 +8,6 @@
    vars_files:
      - ../group_vars/all/vars.yml
      - ../group_vars/all/options.yml
-   tags: presetup
    tasks:
      - ansible.builtin.import_tasks: pacman.yml
      - ansible.builtin.import_tasks: aur_helper.yml

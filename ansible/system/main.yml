@@ -8,7 +8,6 @@
    vars_files:
      - ../group_vars/all/vars.yml
      - ../group_vars/all/options.yml
-   tags: system
    tasks:
 
      - ansible.builtin.import_tasks: amdgpu.yml

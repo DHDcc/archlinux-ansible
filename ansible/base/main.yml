@@ -8,7 +8,6 @@
    vars_files:
      - ../group_vars/all/vars.yml
      - ../group_vars/all/options.yml
-   tags: base
    tasks:
 
      - name: install main desktop packages.
