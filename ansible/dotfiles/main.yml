@@ -7,7 +7,6 @@
    become: false
    vars_files:
      - ../group_vars/all/vars.yml
-   tags: dotfiles
    tasks:
 
      - name: Install rsync and git.
