@@ -177,6 +177,7 @@ base_packages:
     - tumbler
     - gnome-disk-utility
     - thunar-archive-plugin
+    - pika-backup
     - xdg-desktop-portal
     - xdg-desktop-portal-wlr
     - xdg-desktop-portal-gtk
