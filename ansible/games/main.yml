@@ -8,6 +8,7 @@
    vars_files:
      - ../group_vars/all/vars.yml
      - ../group_vars/all/options.yml
+   tags: games
    tasks:
 
      - name: Install gaming packages.
