@@ -18,7 +18,7 @@ amdgpu_packages:
 
 dotfiles:
   url: "https://github.com/DHDcc/MyHyprland.git"
-  destination: "{{ user.home }}/MyHyprland"
+  destination: "{{ user.home }}/.cache/MyHyprland"
 
 sound:
   packages:
