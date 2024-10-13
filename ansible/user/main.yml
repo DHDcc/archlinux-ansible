@@ -1,0 +1,54 @@
+---
+
+-  name: Archlinux post-installation - User
+   hosts: host
+   connection: local
+   gather_facts: false
+   vars_files:
+     - ../group_vars/all/vars.yml
+     - ../group_vars/all/options.yml
+   tasks:
+ 
+     - name: Allow "{{ user.name }}" to run `sudo pacman` without a password.
+       ansible.builtin.lineinfile:
+         path: /etc/sudoers.d/11-"{{ user.name }}"-nopasswd
+         line: '"{{ user.name }}" ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+         create: true
+         mode: 0644
+         validate: 'visudo -cf %s'
+       become: true
+
+     - name: change user shell to zsh.
+       ansible.builtin.user:
+         name: "{{ user.name }}"
+         shell: /bin/zsh
+       become: true
+
+     - name: Install xdg-user-dirs.
+       community.general.pacman:
+         name: xdg-user-dirs
+         state: present
+       register: user_dirs
+       become: true
+
+     - name: Setup user directories.
+       ansible.builtin.command: 
+         cmd: /usr/bin/xdg-user-dirs-update
+       become: false
+       when: user_dirs.changed
+
+     - name: Find all directories in the home directory.
+       ansible.builtin.find:
+         paths: "{{ user.home }}"
+         file_type: directory
+         recurse: no
+       become: false
+       register: found_directories
+
+     - name: Rename directories to lowercase.
+       ansible.builtin.command: 
+         cmd: mv "{{ item.path }}" "{{ item.path | dirname }}/{{ item.path | basename | lower }}"
+       loop: "{{ found_directories.files }}"
+       when: item.path | basename != item.path | basename | lower
+       become: false
+       changed_when: true

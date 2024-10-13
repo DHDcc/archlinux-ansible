@@ -1,10 +1,10 @@
 ---
 
-- ansible.builtin.import_playbook: presetup/main.yml
-
-- ansible.builtin.import_playbook: dotfiles/main.yml
+- ansible.builtin.import_playbook: user/main.yml
 
 - ansible.builtin.import_playbook: system/main.yml
+
+- ansible.builtin.import_playbook: dotfiles/main.yml
 
 - ansible.builtin.import_playbook: base/main.yml
 
