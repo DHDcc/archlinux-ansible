@@ -7,7 +7,6 @@
 - ansible.builtin.import_playbook: system/main.yml
 
 - ansible.builtin.import_playbook: base/main.yml
-  when: options.full_installation == false
 
 - ansible.builtin.import_playbook: fonts_and_themes/main.yml
 

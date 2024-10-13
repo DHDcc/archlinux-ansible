@@ -1,5 +1,4 @@
 options:
-  full_installation: false # NEED TO CREATE ROLE, DO NOT CHANGE THIS OPTION !!!
   amdgpu: true # Set 'amdgpu' to 'false' if you have a Nvidia gpu.
   aur_helper: 
     name: "paru" # Pick your favorite aur helper. 
