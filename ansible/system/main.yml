@@ -17,13 +17,11 @@
          owner: root
          group: root
          mode: 0644
-       become: true
        register: pacman_config
 
      - name: Reload pacman.
        community.general.pacman:
          update_cache: true
-       become: true
        when: pacman_config.changed
 
      - name: Copy makepkg config file.
@@ -33,27 +31,23 @@
          owner: root
          group: root
          mode: 0644
-       become: true
 
      - name: Install "{{ options.aur_helper.name }}".
        kewlfft.aur.aur:
          name: "{{ options.aur_helper.name + '-bin' if options.aur_helper.binary else options.aur_helper.name }}"
          use: makepkg
          state: present
-       become: true
        become_user: "{{ user.name }}"
   
      - name: Install ly.
        ansible.builtin.pacman: 
          name: ly
          state: present
-       become: true
 
      - name: Enable ly service.
        ansible.builtin.systemd_service:
          name: ly
          enabled: yes
-       become: true
 
      - ansible.builtin.import_tasks: amdgpu.yml
        when: options.amdgpu

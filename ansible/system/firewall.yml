@@ -4,7 +4,6 @@
   community.general.pacman:
     name: ufw
     state: present
-  become: true
 
 - name: Disable IPv6.
   ansible.posix.sysctl:
@@ -30,35 +29,29 @@
     port: "{{ item }}"
     proto: tcp
   loop: "{{ firewall.allow_ports }}"
-  become: true
 
 - name: Allow ports (udp).
   community.general.ufw:
     rule: allow
     port: "{{ firewall.allow_ports[-1] }}"
     proto: udp
-  become: true
 
 - name: Deny ports.
   community.general.ufw:
     rule: deny
     port: "{{ firewall.deny_port }}"
     proto: tcp
-  become: true
 
 - name: Set ufw default policy to deny incomming.
   community.general.ufw:
     direction: incoming
     policy: deny
-  become: true
 
 - name: Set ufw default policy to allow outgoing trafic.
   community.general.ufw:
     direction: outgoing
     policy: allow
-  become: true
 
 - name: Enable ufw.
   community.general.ufw:
     state: enabled
-  become: true

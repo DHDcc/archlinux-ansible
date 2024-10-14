@@ -4,7 +4,6 @@
    hosts: host
    connection: local
    gather_facts: false
-   become: true
    vars_files:
      - ../group_vars/all/vars.yml
    tasks:
@@ -13,6 +12,7 @@
        ansible.builtin.pacman:
          name: "{{ sound.packages }}"
          state: present
+       become: true
 
      - name: Enable pipewire services.
        ansible.builtin.systemd_service: 

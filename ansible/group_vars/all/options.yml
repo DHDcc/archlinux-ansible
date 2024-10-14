@@ -1,9 +1,9 @@
 options:
-  amdgpu: true # Set 'amdgpu' to 'false' if you have a Nvidia gpu.
+  amdgpu: true 
   aur_helper: 
-    name: "paru" # Pick your favorite aur helper. 
+    name: "paru" 
     binary: true 
-  hypervisor: false # Set 'hypervisor' to 'true' if you want to install Qemu and VirtManager.
+  hypervisor: false 
   tweaks: false
   gaming_packages: true
-  firewall: true # Set 'firewall' to 'false' if you don't want to install ufw.
+  firewall: true 
