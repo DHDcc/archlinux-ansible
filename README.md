@@ -32,16 +32,28 @@ ansible-playbook --ask-become-pass playbook.yml
 > [!TIP]
 > you can disable/enable some options by editing ```archlinux-ansible/ansible/group_vars/all/options.yml```.
 > 
-> Example:
-> ```
-> aur_helper:
->   name: "paru" # Pick your favorite aur helper.
->   binary: true
->```
+> <details> <summary>Options:</summary>
+>
+> | name  | description | type | default
+> |:------|:-----------:|:-----|:-------:
+> |amdgpu |download Amd packages            | boolean | true
+> |aur_helper.name       |pick your favorite AUR helper             | string     | paru
+> |aur_helper.binary       |if false, it will compile the AUR helper             | bool     | true
+> |hypervisor       |install Qemu and VirtManager             | bool     | false
+> |tweaks |if true, it will apply some tweaks to optimize* your system              | boolean     |false
+> |gaming_packages|install all necessary packages for gaming     | boolean | true
+> |firewall|install ufw and set some rules            | boolean | true
+>  
+> *check the [playbook](https://github.com/DHDcc/archlinux-ansible/blob/main/ansible/tweaks/main.yml) before enabling this option.
+></details>
+
+
+
+
 
 > [!NOTE]
 >
-> If you're using a Nvidia gpu, you need to set the ```amdgpu``` option to ```false``` to avoid downloading Amd packages.
+> If you're using a Nvidia gpu, you need to set the ```amdgpu``` to ```false``` to avoid downloading Amd packages.
 
 ### 4. Reboot
 To complete the installation, reboot your system:
