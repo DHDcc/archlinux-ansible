@@ -38,8 +38,8 @@ ansible-playbook --ask-become-pass playbook.yml
 > |:------|:-----------:|:-----|:-------:
 > |amdgpu |download Amd packages            | boolean | true
 > |aur_helper.name       |pick your favorite AUR helper             | string     | paru
-> |aur_helper.binary       |if false, it will compile the AUR helper             | bool     | true
-> |hypervisor       |install Qemu and VirtManager             | bool     | false
+> |aur_helper.binary       |if false, it will compile the AUR helper             | boolean     | true
+> |hypervisor       |install Qemu and VirtManager             | boolean     | false
 > |tweaks |if true, it will apply some tweaks to optimize* your system              | boolean     |false
 > |gaming_packages|install all necessary packages for gaming     | boolean | true
 > |firewall|install ufw and set some rules            | boolean | true
