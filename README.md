@@ -49,8 +49,6 @@ ansible-playbook --ask-become-pass playbook.yml
 
 
 
-
-
 > [!NOTE]
 >
 > If you're using a Nvidia gpu, you need to set the ```amdgpu``` to ```false``` to avoid downloading Amd packages.
