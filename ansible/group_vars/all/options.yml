@@ -1,5 +1,5 @@
 options:
-  amdgpu: true 
+  amdgpu: false
   aur_helper: 
     name: "paru" 
     binary: true 
