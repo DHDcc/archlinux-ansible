@@ -9,11 +9,9 @@
      - ../group_vars/all/vars.yml
    tasks:
 
-     - name: Install rsync and git.
+     - name: Install dependencies.
        community.general.pacman:
-         name: 
-           - rsync
-           - git
+         name: "{{ dotfiles.dependencies }}"
          state: present
        become: true
 

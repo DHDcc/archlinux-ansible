@@ -18,10 +18,10 @@
          validate: 'visudo -cf %s'
        become: true
 
-     - name: change user shell to zsh.
+     - name: change user shell to "{{ user.shell }}".
        ansible.builtin.user:
          name: "{{ user.name }}"
-         shell: /bin/zsh
+         shell: "{{ user.shell }}"
        become: true
 
      - name: Install xdg-user-dirs.
