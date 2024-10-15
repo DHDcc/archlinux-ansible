@@ -47,6 +47,8 @@ ansible-playbook --ask-become-pass playbook.yml
 > *check the [playbook](https://github.com/DHDcc/archlinux-ansible/blob/main/ansible/tweaks/main.yml) before enabling this option.
 ></details>
 
+> [!NOTE]
+> If you're using an Nvidia GPU, you will need to download the drivers manually.
 
 ### 4. Reboot
 To complete the installation, reboot your system:
