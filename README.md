@@ -12,7 +12,7 @@ This playbook will install my [dotfiles](https://github.com/DHDcc/MyHyprland) an
 ### 1. Dependencies
 Install the necessary dependencies:
 ```
-sudo pacman -S --needed base-devel ansible python-psutil git
+sudo pacman -S base-devel ansible python-psutil git
 ```
 
 ### 2. Get the repository
@@ -36,7 +36,7 @@ ansible-playbook --ask-become-pass playbook.yml
 >
 > | name  | description | type | default
 > |:------|:-----------:|:-----|:-------:
-> |amdgpu |download Amd packages            | boolean | true
+> |amdgpu |install packages for AMD’s gpu           | boolean | false
 > |aur_helper.name       |pick your favorite AUR helper             | string     | paru
 > |aur_helper.binary       |if false, it will compile the AUR helper             | boolean     | true
 > |hypervisor       |install Qemu and VirtManager             | boolean     | false
@@ -47,11 +47,6 @@ ansible-playbook --ask-become-pass playbook.yml
 > *check the [playbook](https://github.com/DHDcc/archlinux-ansible/blob/main/ansible/tweaks/main.yml) before enabling this option.
 ></details>
 
-
-
-> [!NOTE]
->
-> If you're using a Nvidia gpu, you need to set the ```amdgpu``` to ```false``` to avoid downloading Amd packages.
 
 ### 4. Reboot
 To complete the installation, reboot your system:
