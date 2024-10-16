@@ -3,7 +3,7 @@ options:
   aur_helper: 
     name: "paru" 
     git: false 
-  hypervisor: false 
+  hypervisor: true 
   tweaks: false
   gaming_packages: true
   firewall: true 
