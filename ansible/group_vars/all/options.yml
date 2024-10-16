@@ -2,7 +2,7 @@ options:
   amdgpu: false
   aur_helper: 
     name: "paru" 
-    binary: true 
+    git: false 
   hypervisor: false 
   tweaks: false
   gaming_packages: true

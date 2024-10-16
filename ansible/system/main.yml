@@ -34,7 +34,7 @@
 
      - name: Install "{{ options.aur_helper.name }}".
        kewlfft.aur.aur:
-         name: "{{ options.aur_helper.name + '-bin' if options.aur_helper.binary else options.aur_helper.name }}"
+         name: "{{ options.aur_helper.name + '-git' if options.aur_helper.git else options.aur_helper.name + '-bin' }}"
          use: makepkg
          state: present
        become_user: "{{ user.name }}"
