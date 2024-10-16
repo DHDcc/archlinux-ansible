@@ -72,12 +72,14 @@
          use: "{{ options.aur_helper.name }}"
          state: present
        become_user: "{{ user.name }}"
+       register: install_preload
        tags: speed_up_app_launch
  
      - name: Enable preload.
        ansible.builtin.systemd_service:
          name: preload
          enabled: true
+       when: install_preload.changed
        tags: speed_up_app_launch
 
      - name: Install reflector (aur).
@@ -93,14 +95,14 @@
        ansible.builtin.copy:
          src: "/etc/pacman.d/mirrorlist"
          dest: "/etc/pacman.d/mirrorlist.back"
-       tags: mirrorlist
-
+       when: install_reflector.changed
+       register: backup_mirror     
+  
      - name: Fetch the top 10 fastest servers.
        ansible.builtin.command:
          cmd: /sbin/reflector --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
-       when: install_reflector.changed
+       when: install_reflector.changed and backup_mirror.changed
        register: fastest_servers
-       tags: mirrorlist
 
      - name: Reload pacman.
        community.general.pacman:
