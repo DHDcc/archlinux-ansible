@@ -1,6 +1,6 @@
 ---
 
--  name: Archlinux post-installation - Base
+-  name: Archlinux post-installation - Essential
    hosts: host
    connection: local
    gather_facts: false
@@ -10,14 +10,14 @@
      - ../group_vars/all/options.yml
    tasks:
 
-     - name: install main desktop packages.
+     - name: install essential packages.
        community.general.pacman:
-         name: "{{ base_packages.pacman + hypr_ecosystem.pacman + terminal_packages.pacman }}"
+         name: "{{ essential_packages.pacman + hypr_ecosystem.pacman }}"
          state: present
 
-     - name: install main desktop packages (aur).
+     - name: install essential packages (aur).
        kewlfft.aur.aur:
-         name: "{{ base_packages.aur + hypr_ecosystem.aur + terminal_packages.aur }}"
+         name: "{{ essential_packages.aur + hypr_ecosystem.aur }}"
          use: "{{ options.aur_helper.name }}"
          state: present
        become_user: "{{ user.name }}"

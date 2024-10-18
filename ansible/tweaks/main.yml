@@ -37,7 +37,7 @@
          cmd: grub-mkconfig -o /boot/grub/grub.cfg
        when: grub_config.changed
 
-     - name: Increase vm.max_map_count.
+     - name: Increase virtual memory.
        ansible.builtin.copy:
          dest: "/etc/sysctl.d/80-virtualmemory.conf"
          content: |
@@ -54,7 +54,7 @@
        ansible.builtin.file:
          path: "/etc/pacman.d/hooks"
          state: directory
-       tags: hooks
+       register: hooks_directory
      
      - name: Copy file to pacman hooks directory.
        ansible.builtin.copy:
@@ -63,8 +63,7 @@
          owner: root
          group: root
          mode: 0644
-       register: hook
-       tags: hooks
+       when: hooks_directory.changed
  
      - name: Install preload (aur).
        kewlfft.aur.aur:
@@ -107,4 +106,4 @@
      - name: Reload pacman.
        community.general.pacman:
          update_cache: true
-       when: hook.changed or fastest_servers.changed
+       when: fastest_servers.changed

@@ -1,6 +1,6 @@
 ---
 
--  name: Archlinux post-installation - Sound 
+-  name: Archlinux post-installation - Audio
    hosts: host
    connection: local
    gather_facts: false
@@ -10,7 +10,7 @@
 
      - name: Install pipewire.
        ansible.builtin.pacman:
-         name: "{{ sound.packages }}"
+         name: "{{ audio.packages }}"
          state: present
        become: true
 
@@ -19,7 +19,7 @@
          name: "{{ item }}"
          enabled: yes
          scope: user
-       loop: "{{ sound.services }}"
+       loop: "{{ audio.services }}"
        become: false
 
 
