@@ -32,7 +32,7 @@
          group: root
          mode: 0644
 
-     - name: Install "{{ options.aur_helper.name }}".
+     - name: Install "{{ options.aur_helper.name }}" (aur).
        kewlfft.aur.aur:
          name: "{{ options.aur_helper.name + '-git' if options.aur_helper.git else options.aur_helper.name + '-bin' }}"
          use: makepkg

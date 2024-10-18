@@ -24,7 +24,7 @@ dotfiles:
     - rsync
     - git
 
-sound:
+audio:
   packages:
     - wireplumber
     - pipewire
@@ -91,104 +91,60 @@ firewall:
     - 53317
   deny_port: 22
 
-terminal_packages:
+hypr_ecosystem:
   pacman:
+    - hyprland
+    - hyprlock
+    - hypridle
+    - hyprutils
+    - xdg-desktop-portal-hyprland
+  aur: 
+    - grimblast-git 
+    - hyprpicker
+
+essential_packages:
+  pacman:
+    - firefox
+    - udiskie
+    - waybar
+    - swaync
+    - qt5ct
+    - playerctl
+    - gnome-keyring 
+    - qt6-wayland
+    - qt5-wayland
+    - polkit-gnome
+    - network-manager-applet
+    - swappy 
+    - engrampa
+    - thunar
+    - tumbler
+    - gnome-disk-utility
+    - thunar-archive-plugin
     - kitty
     - zsh
     - pacman-contrib
     - lsd
     - zoxide
     - ranger
-    - zathura
     - fzf
     - imv
-    - yt-dlp
     - neofetch
-    - ncdu
-    - bat
     - imagemagick
     - btop
     - p7zip
     - unzip
     - wl-clipboard
-    - newsboat
-    - plocate
     - swww
-    - tree
     - man-db
-    - tldr
-    - ttyper
-  aur:
-    - cava
-    - preload
-    - lavat-git
-    - downgrade
-
-aur_packages:
-  - cava
-  - downgrade
-  - feishin-bin
-  - fontpreview-git
-  - freetube-bin
-  - grimblast-git
-  - heroic-games-launcher-bin
-  - lavat-git
-  #- mullvad-vpn
-  - nerd-fonts-git
-  - onlyoffice-bin
-  - pika-backup
-  - preload
-  - rofi-lbonn-wayland-git
-  - spotify
-  - thunar-shares-plugin
-  - trilium-bin
-  - ventoy-bin
-  - vscodium-bin
-  - wlogout
-
-hypr_ecosystem:
-  pacman:
-    - hyprland
-    - hyprlock
-    - hypridle
-    - xdg-desktop-portal-hyprland
-  aur: 
-    - grimblast-git 
-    - hyprpicker
-
-base_packages:
-  pacman:
-    - firefox
-    - pacman-contrib
-    - udiskie
-    - waybar
-    - swaync
-    - qt5ct
-    - playerctl
-    - imagemagick
-    - cronie
-    - gnome-keyring 
-    - qt6-wayland
-    - zathura-pdf-mupdf
-    - qt5-wayland
-    - polkit-gnome
-    - network-manager-applet
-    - qbittorrent
-    - swappy 
-    - engrampa
-    - obs-studio
-    - thunar
-    - tumbler
-    - gnome-disk-utility
-    - thunar-archive-plugin
-    - pika-backup
     - xdg-desktop-portal
     - xdg-desktop-portal-wlr
     - xdg-desktop-portal-gtk
   aur:
-   - rofi-lbonn-wayland-git
-   - preload
-   - localsend-bin
-   - onlyoffice-bin
-   - thunar-shares-plugin
-   - vscodium-bin
+    - cava
+    - downgrade
+    - rofi-lbonn-wayland-git
+    - localsend-bin
+    - onlyoffice-bin
+    - thunar-shares-plugin
+    - vscodium-bin

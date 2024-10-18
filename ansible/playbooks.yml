@@ -6,16 +6,16 @@
 
 - ansible.builtin.import_playbook: dotfiles/main.yml
 
-- ansible.builtin.import_playbook: base/main.yml
+- ansible.builtin.import_playbook: essential/main.yml
 
 - ansible.builtin.import_playbook: fonts_and_themes/main.yml
 
-- ansible.builtin.import_playbook: sound/main.yml
+- ansible.builtin.import_playbook: audio/main.yml
 
 - ansible.builtin.import_playbook: hypervisor/main.yml
   when: options.hypervisor
 
-- ansible.builtin.import_playbook: games/main.yml
+- ansible.builtin.import_playbook: gaming/main.yml
   when: options.gaming_packages
 
 - ansible.builtin.import_playbook: tweaks/main.yml
