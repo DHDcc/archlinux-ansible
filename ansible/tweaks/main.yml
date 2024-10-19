@@ -37,6 +37,24 @@
          cmd: grub-mkconfig -o /boot/grub/grub.cfg
        when: grub_config.changed
 
+
+     - name: Reduce the journal's size.
+       ansible.builtin.lineinfile:
+         path: "/etc/systemd/journald.conf"
+         regexp: '^#SystemMaxUse'
+         line: "SystemMaxUse=50M"
+
+     - name: Use the BFQ scheduler.
+       ansible.builtin.copy:
+         dest: "/etc/udev/rules.d/60-ioschedulers.rules"
+         content: |
+           # set scheduler for NVMe
+           ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/scheduler}="none"
+           # set scheduler for SSD and eMMC
+           ACTION=="add|change", KERNEL=="sd[a-z]|mmcblk[0-9]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="bfq"
+           # set scheduler for rotating disks
+           ACTION=="add|change", KERNEL=="sd[a-z]", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
+
      - name: Increase virtual memory.
        ansible.builtin.copy:
          dest: "/etc/sysctl.d/80-virtualmemory.conf"
