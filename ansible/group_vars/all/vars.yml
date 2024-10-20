@@ -146,3 +146,27 @@ essential_packages:
     - downgrade
     - rofi-lbonn-wayland-git
     - thunar-shares-plugin
+
+extra_packages:
+  pacman:
+    - yt-dlp
+    - ncdu
+    - plocate
+    - ttyper
+    - tldr
+    - pika-backup
+    - qbittorrent
+    - obs-studio
+    - zathura
+    - zathura-pdf-mupdf
+    - bat
+    - newsboat
+    - tree
+  aur:
+    - lavat-git
+    - onlyoffice-bin
+    - localsend-bin
+    - feishin-bin
+    - freetube-bin
+    - spotify
+    - vscodium-bin

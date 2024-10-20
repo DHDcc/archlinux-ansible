@@ -21,3 +21,17 @@
          use: "{{ options.aur_helper.name }}"
          state: present
        become_user: "{{ user.name }}"
+
+     - name: install extra packages.
+       community.general.pacman:
+         name: "{{ extra_packages.pacman }}"
+         state: present 
+       when: options.extra
+
+     - name: install extra packages (aur).
+       kewlfft.aur.aur:
+         name: "{{ extra_packages.aur }}"
+         use: "{{ options.aur_helper.name }}"
+         state: present
+       become_user: "{{ user.name }}"
+       when: options.extra

@@ -7,3 +7,4 @@ options:
   tweaks: false
   gaming_packages: true
   firewall: true 
+  extra: false
