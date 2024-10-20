@@ -26,7 +26,7 @@ Install the required collection using the ```requirements``` file, then run the 
 ```
 cd archlinux-ansible/ansible
 ansible-galaxy collection install -r requirements.yml
-ansible-playbook --ask-become-pass playbook.yml
+ansible-playbook --ask-become-pass playbooks.yml
 ```
 
 > [!TIP]

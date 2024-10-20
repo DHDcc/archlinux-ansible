@@ -109,6 +109,7 @@ essential_packages:
     - waybar
     - swaync
     - qt5ct
+    - qt6ct
     - playerctl
     - gnome-keyring 
     - qt6-wayland
@@ -144,7 +145,4 @@ essential_packages:
     - cava
     - downgrade
     - rofi-lbonn-wayland-git
-    - localsend-bin
-    - onlyoffice-bin
     - thunar-shares-plugin
-    - vscodium-bin
