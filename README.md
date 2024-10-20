@@ -43,6 +43,7 @@ ansible-playbook --ask-become-pass playbooks.yml
 > |tweaks |apply tweaks to speed up/optimize* your system              | boolean     |false
 > |gaming_packages|install all necessary packages for gaming     | boolean | true
 > |firewall|install ufw and set some rules            | boolean | true
+> |extra|install extra packages| boolean | false
 >  
 > *check the [playbook](https://github.com/DHDcc/archlinux-ansible/blob/main/ansible/tweaks/main.yml) before enabling this option.
 ></details>
