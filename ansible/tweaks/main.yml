@@ -34,7 +34,7 @@
 
      - name: Rebuild GRUB configuration.
        ansible.builtin.command:
-         cmd: grub-mkconfig -o /boot/grub/grub.cfg
+         cmd: /sbin/grub-mkconfig -o /boot/grub/grub.cfg
        when: grub_config.changed
 
 
