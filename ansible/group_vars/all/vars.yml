@@ -126,7 +126,6 @@ essential_packages:
     - zsh
     - pacman-contrib
     - lsd
-    - zoxide
     - ranger
     - fzf
     - imv
@@ -152,6 +151,8 @@ extra_packages:
     - yt-dlp
     - ncdu
     - plocate
+    - zoxide
+    - piper
     - ttyper
     - tldr
     - pika-backup
