@@ -2,7 +2,6 @@ user:
   name: "{{ lookup('env', 'USER') }}"
   shell: "/bin/zsh"
   home: "{{ lookup('env', 'HOME') }}"
-  uid: "{{ lookup('env', 'UID') }}"
 
 amdgpu_packages:
   - mesa
