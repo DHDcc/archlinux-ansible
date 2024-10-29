@@ -58,14 +58,18 @@ hypervisor:
     - disk
 
 fonts:
-  pacman:
+  packages:
     - powerline-fonts
     - ttf-linux-libertine
     - noto-fonts-emoji
     - noto-fonts-extra
-  aur:
-    - nerd-fonts-git
-    - fontpreview-git
+    - ttf-jetbrains-mono-nerd
+    - otf-firamono-nerd
+    - ttf-iosevka-nerd
+  github:
+    url: "https://github.com/google/fonts/raw/main/ofl/alfaslabone/AlfaSlabOne-Regular.ttf"
+    destination: "{{ user.home }}/.local/share/fonts/AlfaSlabOne.ttf"
+    mode: "0644"
 
 themes:
   - nwg-look

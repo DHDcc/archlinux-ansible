@@ -11,17 +11,29 @@
 
     - name: Install fonts and themes.
       community.general.pacman:
-        name: "{{ fonts.pacman + themes }}"
+        name: "{{ fonts.packages + themes }}"
         state: present
       become: true
 
-    - name: Install fonts (aur).
+    - name: Install fontpreview (aur).
       kewlfft.aur.aur:
         use: "{{ options.aur_helper.name }}"
-        name: "{{ fonts.aur }}"
+        name: "fontpreview-git"
         state: present
       become: true
       become_user: "{{ user.name }}"
+   
+    - name: Create user font directory.
+      ansible.builtin.file:
+        path: "{{ user.home }}/.local/share/fonts"
+        state: directory
+        mode: "0755"
+
+    - name: Download AlfaSlabOne font.
+      ansible.builtin.get_url:
+        url: "{{ fonts.github.url }}"
+        dest: "{{ fonts.github.destination }}"
+        mode: "{{ fonts.github.mode }}"
 
     - name: Set icons theme.
       community.general.dconf:
