@@ -63,6 +63,7 @@ fonts:
     - ttf-linux-libertine
     - noto-fonts-emoji
     - noto-fonts-extra
+    - noto-fonts-cjk
     - ttf-jetbrains-mono-nerd
     - otf-firamono-nerd
     - ttf-iosevka-nerd
