@@ -37,32 +37,32 @@
 
     - name: Set icons theme.
       community.general.dconf:
-        key: "/org/gnome/desktop/interface/icon-theme"
-        value: "'Papirus-Dark'"
+        key: "{{ dconf.key_path }}/icon-theme"
+        value: "{{ dconf.value.icon_theme }}"
       become: false
 
     - name: Set text font and size.
       community.general.dconf:
-        key: "/org/gnome/desktop/interface/font-name"
-        value: "'Noto Sans 12'"
+        key: "{{ dconf.key_path }}/font-name"
+        value: "{{ dconf.value.font_name }}"
       become: false
 
     - name: Set applications theme.
       community.general.dconf:
-        key: "/org/gnome/desktop/interface/gtk-theme"
-        value: "'Adwaita-dark'"
+        key: "{{ dconf.key_path }}/gtk-theme"
+        value: "{{ dconf.value.gtk_theme }}"
       become: false 
 
     - name: Set color scheme preference to dark.
       community.general.dconf:
-        key: "/org/gnome/desktop/interface/color-scheme"
-        value: "'prefer-dark'"
+        key: "{{ dconf.key_path }}/color-scheme"
+        value: "{{ dconf.value.color_scheme }}"
       become: false 
 
     - name: Set cursor size.
       community.general.dconf:
-        key: "/org/gnome/desktop/interface/cursor-size"
-        value: "30"
+        key: "{{ dconf.key_path }}/cursor-size"
+        value: "{{ dconf.value.cursor_size }}"
       become: false
 
     - name: copy onetime script.

@@ -76,6 +76,15 @@ themes:
   - papirus-icon-theme
   - gnome-themes-extra
 
+dconf:
+  key_path: "/org/gnome/desktop/interface"
+  value:
+    icon_theme: "'Papirus-Dark'"
+    font_name: "'Noto Sans 12'"
+    gtk_theme: "'Adwaita-dark'"
+    color_scheme: "'prefer-dark'"
+    cursor_size: "30"
+
 gaming_packages:
   pacman:
     - steam
