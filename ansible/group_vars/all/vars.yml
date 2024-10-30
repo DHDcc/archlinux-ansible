@@ -61,6 +61,11 @@ fonts:
   packages:
     - powerline-fonts
     - ttf-linux-libertine
+    - ttf-roboto
+    - ttf-dejavu
+    - cantarell-fonts
+    - ttf-bitstream-vera
+    - noto-fonts
     - noto-fonts-emoji
     - noto-fonts-extra
     - noto-fonts-cjk
