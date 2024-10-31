@@ -45,7 +45,7 @@
          state: present
 
      - name: Enable ly service.
-       ansible.builtin.systemd_service:
+       ansible.builtin.systemd:
          name: ly
          enabled: true
 

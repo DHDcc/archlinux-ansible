@@ -13,6 +13,6 @@
   become_user: "{{ user.name }}"
    
 - name: Enable lact service.
-  ansible.builtin.systemd_service:
+  ansible.builtin.systemd:
     name: lactd
     enabled: true
