@@ -10,8 +10,8 @@
     name: "{{ item.key }}"
     value: "{{ item.value }}"
     state: present
-    sysctl_set: yes  
-    reload: yes  
+    sysctl_set: true
+    reload: true  
   loop:
     - { key: 'net.ipv6.conf.all.disable_ipv6', value: '1' }
     - { key: 'net.ipv6.conf.default.disable_ipv6', value: '1' }

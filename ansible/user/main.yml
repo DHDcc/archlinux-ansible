@@ -41,7 +41,7 @@
        ansible.builtin.find:
          paths: "{{ user.home }}"
          file_type: directory
-         recurse: no
+         recurse: false
        become: false
        register: found_directories
 

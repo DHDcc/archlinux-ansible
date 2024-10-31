@@ -13,11 +13,10 @@
     name: "{{ hypervisor.packages }}"
     state: present
 
-- name: Enable and start services.
+- name: Enable the "{{ hypervisor.unit }}" unit.
   ansible.builtin.systemd_service:
-    name: "{{ hypervisor.service }}"
-    state: started
-    enabled: yes
+    name: "{{ hypervisor.unit }}"
+    enabled: true
    
 - name: Start and autostart default network.
   community.libvirt.virt_net:
@@ -29,7 +28,7 @@
   ansible.builtin.user:
     name: "{{ user.name }}"
     groups: "{{ hypervisor.groups }}"
-    append: yes
+    append: true
 
 - name: Change firewall backend for libvirt.
   ansible.builtin.lineinfile:

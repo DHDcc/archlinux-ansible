@@ -47,7 +47,7 @@
      - name: Enable ly service.
        ansible.builtin.systemd_service:
          name: ly
-         enabled: yes
+         enabled: true
 
      - ansible.builtin.import_tasks: amdgpu.yml
        when: options.amdgpu

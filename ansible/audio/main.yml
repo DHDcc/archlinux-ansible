@@ -17,7 +17,7 @@
      - name: Enable pipewire services.
        ansible.builtin.systemd_service: 
          name: "{{ item }}"
-         enabled: yes
+         enabled: true
          scope: user
        loop: "{{ audio.services }}"
        become: false

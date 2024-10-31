@@ -49,7 +49,7 @@ hypervisor:
     - python-lxml
     - iptables
     - libguestfs
-  service: libvirtd
+  unit: libvirtd.socket
   groups:
     - libvirt
     - kvm
