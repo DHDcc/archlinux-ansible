@@ -58,7 +58,7 @@ hypervisor:
     - disk
 
 fonts:
-  pacman:
+  packages:
     - powerline-fonts
     - ttf-linux-libertine
     - ttf-roboto
@@ -72,8 +72,7 @@ fonts:
     - ttf-jetbrains-mono-nerd
     - otf-firamono-nerd
     - ttf-iosevka-nerd
-  aur:
-    - ttf-unifont
+    #- ttf-unifont (aur)
   github:
     url: "https://github.com/google/fonts/raw/main/ofl/alfaslabone/AlfaSlabOne-Regular.ttf"
     destination: "{{ user.home }}/.local/share/fonts/AlfaSlabOne.ttf"
