@@ -93,7 +93,7 @@
        tags: speed_up_app_launch
  
      - name: Enable preload.
-       ansible.builtin.systemd_service:
+       ansible.builtin.systemd:
          name: preload
          enabled: true
        when: install_preload.changed
