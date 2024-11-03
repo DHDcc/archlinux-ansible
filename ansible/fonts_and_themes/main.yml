@@ -67,6 +67,12 @@
         value: "{{ dconf.value.cursor_size }}"
       become: false
 
+    - name: Set cursor theme.
+      community.general.dconf:
+        key: "{{ dconf.key_path }}/cursor-theme"
+        value: "{{ dconf.value.cursor_theme }}"
+      become: false
+
     - name: copy onetime script.
       ansible.builtin.copy:
         src: "onetime.sh"

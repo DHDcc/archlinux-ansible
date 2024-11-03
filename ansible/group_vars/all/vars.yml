@@ -91,6 +91,7 @@ dconf:
     gtk_theme: "'Adwaita-dark'"
     color_scheme: "'prefer-dark'"
     cursor_size: "30"
+    cursor_theme: "'Adwaita'"
 
 gaming_packages:
   pacman:
