@@ -30,7 +30,7 @@ ansible-playbook --ask-become-pass playbooks.yml
 ```
 
 > [!TIP]
-> you can disable/enable some options by editing ```archlinux-ansible/ansible/group_vars/all/options.yml```.
+> you can disable/enable some options by editing ```~/archlinux-ansible/ansible/group_vars/all/options.yml```.
 > 
 > <details> <summary>Options:</summary>
 >
@@ -40,7 +40,7 @@ ansible-playbook --ask-become-pass playbooks.yml
 > |aur_helper.name       |pick your favorite AUR helper             | string     | paru
 > |aur_helper.git       |compile the helper from the latest github commits            | boolean     | false
 > |hypervisor       |install Qemu and VirtManager             | boolean     | true
-> |tweaks |apply tweaks to speed up/optimize* your system              | boolean     |false
+> |tweaks |apply tweaks for your system*             | boolean     |false
 > |gaming_packages|install all necessary packages for gaming     | boolean | true
 > |firewall|install ufw and set some rules            | boolean | true
 > |extra|install extra packages| boolean | false
