@@ -192,5 +192,4 @@ extra_packages:
     - localsend-bin
     - feishin-bin
     - freetube-bin
-    - spotify
     - vscodium-bin
