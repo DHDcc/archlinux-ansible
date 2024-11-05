@@ -39,38 +39,44 @@
 
     - name: Set icons theme.
       community.general.dconf:
-        key: "{{ dconf.key_path }}/icon-theme"
+        key: "{{ dconf.key_path.interface }}/icon-theme"
         value: "{{ dconf.value.icon_theme }}"
       become: false
 
     - name: Set text font and size.
       community.general.dconf:
-        key: "{{ dconf.key_path }}/font-name"
+        key: "{{ dconf.key_path.interface }}/font-name"
         value: "{{ dconf.value.font_name }}"
       become: false
 
     - name: Set applications theme.
       community.general.dconf:
-        key: "{{ dconf.key_path }}/gtk-theme"
+        key: "{{ dconf.key_path.interface }}/gtk-theme"
         value: "{{ dconf.value.gtk_theme }}"
       become: false 
 
     - name: Set color scheme preference to dark.
       community.general.dconf:
-        key: "{{ dconf.key_path }}/color-scheme"
+        key: "{{ dconf.key_path.interface }}/color-scheme"
         value: "{{ dconf.value.color_scheme }}"
       become: false 
 
     - name: Set cursor size.
       community.general.dconf:
-        key: "{{ dconf.key_path }}/cursor-size"
+        key: "{{ dconf.key_path.interface }}/cursor-size"
         value: "{{ dconf.value.cursor_size }}"
       become: false
 
     - name: Set cursor theme.
       community.general.dconf:
-        key: "{{ dconf.key_path }}/cursor-theme"
+        key: "{{ dconf.key_path.interface }}/cursor-theme"
         value: "{{ dconf.value.cursor_theme }}"
+      become: false
+
+    - name: Change button layout on windows.
+      community.general.dconf:
+        key: "{{ dconf.key_path.button_layout }}"
+        value: "{{ dconf.value.button_layout }}"
       become: false
 
     - name: copy onetime script.

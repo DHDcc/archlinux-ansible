@@ -84,7 +84,9 @@ themes:
   - gnome-themes-extra
 
 dconf:
-  key_path: "/org/gnome/desktop/interface"
+  key_path: 
+    interface: "/org/gnome/desktop/interface"
+    button_layout: "/org/gnome/desktop/wm/preferences/button-layout"
   value:
     icon_theme: "'Papirus-Dark'"
     font_name: "'Noto Sans 12'"
@@ -92,6 +94,7 @@ dconf:
     color_scheme: "'prefer-dark'"
     cursor_size: "30"
     cursor_theme: "'Adwaita'"
+    button_layout: "':'"
 
 gaming_packages:
   pacman:
