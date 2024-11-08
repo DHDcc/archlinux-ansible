@@ -18,7 +18,7 @@
          validate: 'visudo -cf %s'
        become: true
 
-     - name: change user shell to "{{ user.shell }}".
+     - name: Change user shell to "{{ user.shell }}".
        ansible.builtin.user:
          name: "{{ user.name }}"
          shell: "{{ user.shell }}"
