@@ -155,7 +155,6 @@ essential_packages:
     - neofetch
     - imagemagick
     - btop
-    - p7zip
     - unzip
     - wl-clipboard
     - swww
