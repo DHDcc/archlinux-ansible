@@ -30,6 +30,19 @@
     groups: "{{ hypervisor.groups }}"
     append: true
 
+- name: Create libvirt directory.
+  ansible.builtin.file:
+    path: "{{ user.home }}/.config/libvirt"
+    state: directory
+  become: false
+
+- name: Use virsh command without sudo.
+  ansible.builtin.copy:
+    dest: "{{ user.home }}/.config/libvirt/libvirt.conf"
+    content: |
+      uri_default = "qemu:///system"
+  become: false
+
 - name: Change firewall backend for libvirt.
   ansible.builtin.lineinfile:
     path: "/etc/libvirt/network.conf"
