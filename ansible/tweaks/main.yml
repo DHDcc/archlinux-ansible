@@ -11,7 +11,7 @@
    tasks:
 
      - name: Enable trim.
-       ansible.builtin.systemd_service:
+       ansible.builtin.systemd:
          name: fstrim.timer
          enabled: true
 
@@ -27,16 +27,23 @@
 
      - name: Add boot parameters.
        ansible.builtin.lineinfile:
-         path: "/etc/default/grub"
-         regexp: '^GRUB_CMDLINE_LINUX_DEFAULT=".*"$'
-         line: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=3 libahci.ignore_sss=1 nowatchdog"'
-       register: grub_config
+         path: "/boot/loader/entries/arch.conf"
+         regexp: '^(options .*rw)\s*$'
+         line: "\\1 loglevel=3 libahci.ignore_sss=1 nowatchdog"
+         backrefs: true
 
-     - name: Rebuild GRUB configuration.
-       ansible.builtin.command:
-         cmd: /sbin/grub-mkconfig -o /boot/grub/grub.cfg
-       when: grub_config.changed
-
+     - name: Create pacman hooks directory.
+       ansible.builtin.file:
+         path: "/etc/pacman.d/hooks"
+         state: directory
+     
+     - name: Copy file to pacman hooks directory.
+       ansible.builtin.copy:
+         src: "95-systemd-boot.hook"
+         dest: "/etc/pacman.d/hooks"
+         owner: root
+         group: root
+         mode: 0644
 
      - name: Reduce the journal's size.
        ansible.builtin.lineinfile:
@@ -67,21 +74,6 @@
          path: "/etc/systemd/logind.conf"
          search_string: "#HandlePowerKey="
          line: "HandlePowerKey=suspend"
-
-     - name: Create pacman hooks directory.
-       ansible.builtin.file:
-         path: "/etc/pacman.d/hooks"
-         state: directory
-       register: hooks_directory
-     
-     - name: Copy file to pacman hooks directory.
-       ansible.builtin.copy:
-         src: "95-grub-reinstall.hook"
-         dest: "/etc/pacman.d/hooks"
-         owner: root
-         group: root
-         mode: 0644
-       when: hooks_directory.changed
  
      - name: Install preload (aur).
        kewlfft.aur.aur:
