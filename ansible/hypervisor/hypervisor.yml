@@ -39,8 +39,7 @@
 - name: Use virsh command without sudo.
   ansible.builtin.copy:
     dest: "{{ user.home }}/.config/libvirt/libvirt.conf"
-    content: |
-      uri_default = "qemu:///system"
+    content: 'uri_default = "qemu:///system"'
   become: false
 
 - name: Change firewall backend for libvirt.
