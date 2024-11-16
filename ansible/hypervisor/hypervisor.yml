@@ -13,9 +13,10 @@
     name: "{{ hypervisor.packages }}"
     state: present
 
-- name: Enable the "{{ hypervisor.unit }}" unit.
+- name: Enable and start the "{{ hypervisor.unit }}" unit.
   ansible.builtin.systemd:
     name: "{{ hypervisor.unit }}"
+    state: started
     enabled: true
    
 - name: Start and autostart default network.
