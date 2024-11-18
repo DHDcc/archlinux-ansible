@@ -18,15 +18,15 @@ sudo pacman -S base-devel ansible python-psutil git
 ### 2. Get the repository
 Clone the git repository:
 ```
-git clone https://github.com/DHDcc/archlinux-ansible.git
+$ git clone https://github.com/DHDcc/archlinux-ansible.git
 ```
 
 ### 3. Run the playbook
 Install the required collection using the ```requirements``` file, then run the playbook:
 ```
-cd archlinux-ansible/ansible
-ansible-galaxy collection install -r requirements.yml
-ansible-playbook --ask-become-pass playbooks.yml
+$ cd archlinux-ansible/ansible
+$ ansible-galaxy collection install -r requirements.yml
+$ ansible-playbook --ask-become-pass playbooks.yml
 ```
 
 > [!TIP]
@@ -54,5 +54,5 @@ ansible-playbook --ask-become-pass playbooks.yml
 ### 4. Reboot
 To complete the installation, reboot your system:
 ```
-reboot
+$ reboot
 ```
