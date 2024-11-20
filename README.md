@@ -12,7 +12,7 @@ This playbook will install my [dotfiles](https://github.com/DHDcc/MyHyprland) an
 ### 1. Dependencies
 Install the necessary dependencies:
 ```
-sudo pacman -S base-devel ansible python-psutil git
+# pacman -S base-devel ansible python-psutil git
 ```
 
 ### 2. Get the repository
