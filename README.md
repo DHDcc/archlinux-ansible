@@ -54,5 +54,5 @@ $ ansible-playbook --ask-become-pass playbooks.yml
 ### 4. Reboot
 To complete the installation, reboot your system:
 ```
-$ reboot
+# reboot
 ```
