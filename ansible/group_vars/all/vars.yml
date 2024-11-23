@@ -140,7 +140,7 @@ essential_packages:
     - engrampa
     - thunar
     - tumbler
-    - gnome-disk-utility
+    - gparted
     - thunar-archive-plugin
     - kitty
     - zsh
