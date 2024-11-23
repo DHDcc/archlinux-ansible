@@ -161,6 +161,7 @@ essential_packages:
     - xdg-desktop-portal-gtk
   aur:
     - cava
+    - kew-git
     - downgrade
     - rofi-lbonn-wayland-git
     - thunar-shares-plugin
