@@ -30,19 +30,19 @@ $ ansible-playbook --ask-become-pass playbooks.yml
 ```
 
 > [!TIP]
-> you can disable/enable some options by editing ```~/archlinux-ansible/ansible/group_vars/all/options.yml```.
+> you can enable some options by editing ```~/archlinux-ansible/ansible/group_vars/all/options.yml```.
 > 
 > <details> <summary>Options:</summary>
 >
 > | name  | description | type | default
 > |:------|:-----------:|:-----|:-------:
 > |amdgpu |install packages for AMD’s gpu           | boolean | false
-> |aur_helper.name       |pick your favorite AUR helper             | string     | paru
-> |aur_helper.git       |compile the helper from the latest github commits            | boolean     | false
-> |hypervisor       |install Qemu and VirtManager             | boolean     | true
+> |aur_helper:name       |pick your favorite AUR helper             | string     | paru
+> |aur_helper:git       |compile the helper from the latest github commits            | boolean     | false
+> |hypervisor       |install Qemu and VirtManager             | boolean     | false
 > |tweaks |apply tweaks for your system*             | boolean     |false
-> |gaming_packages|install all necessary packages for gaming     | boolean | true
-> |firewall|install ufw and set some rules            | boolean | true
+> |gaming_packages|install all necessary packages for gaming     | boolean | false
+> |firewall|install ufw and set some rules            | boolean | false
 > |extra|install extra packages| boolean | false
 >  
 > *check the [playbook](https://github.com/DHDcc/archlinux-ansible/blob/main/ansible/tweaks/main.yml) before enabling this option.
