@@ -25,7 +25,7 @@
          dest: "/etc/sysctl.d/50-coredump.conf"
          content: "kernel.core_pattern=|/bin/false"
 
-     - name: Add boot parameters.
+     - name: Add boot parameters for systemd-boot.
        ansible.builtin.lineinfile:
          path: "/boot/loader/entries/arch.conf"
          regexp: '^(options .*rw)\s*$'
@@ -37,7 +37,7 @@
          path: "/etc/pacman.d/hooks"
          state: directory
      
-     - name: Copy file to pacman hooks directory.
+     - name: Add a pacman hook for systemd-boot.
        ansible.builtin.copy:
          src: "95-systemd-boot.hook"
          dest: "/etc/pacman.d/hooks"
@@ -45,6 +45,25 @@
          group: root
          mode: 0644
 
+     - name: Install Dash.
+       community.general.pacman:
+         name: dash
+         state: present
+       register: install_dash
+      
+     - name: Use Dash as /bin/sh.
+       ansible.builtin.command:
+         cmd: /sbin/ln -sfT dash /usr/bin/sh
+       when: install_dash.changed
+
+     - name: Add a pacman hook for Bash.
+       ansible.builtin.copy:
+         src: "bash-update.hook"
+         dest: "/etc/pacman.d/hooks"
+         owner: root
+         group: root
+         mode: 0644
+       
      - name: Reduce the journal's size.
        ansible.builtin.lineinfile:
          path: "/etc/systemd/journald.conf"
