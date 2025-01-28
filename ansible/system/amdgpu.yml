@@ -4,15 +4,8 @@
   community.general.pacman:
     name: "{{ amdgpu_packages }}"
     state: present
-
-- name: Install lact (aur).
-  kewlfft.aur.aur:
-    use: "{{ options.aur_helper.name }}"
-    name: lact
-    state: present
-  become_user: "{{ user.name }}"
    
-- name: Enable lact service.
+- name: Enable lactd service.
   ansible.builtin.systemd:
     name: lactd
     enabled: true

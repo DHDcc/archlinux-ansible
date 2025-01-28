@@ -4,6 +4,7 @@ user:
   home: "{{ lookup('env', 'HOME') }}"
 
 amdgpu_packages:
+  - lact
   - mesa
   - lib32-mesa
   - vulkan-radeon
