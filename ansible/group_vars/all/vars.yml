@@ -126,6 +126,7 @@ hypr_ecosystem:
 
 essential_packages:
   pacman:
+    - uwsm
     - firefox
     - udiskie
     - waybar
