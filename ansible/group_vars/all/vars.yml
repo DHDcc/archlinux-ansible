@@ -8,6 +8,7 @@ amdgpu_packages:
   - mesa
   - lib32-mesa
   - vulkan-radeon
+  - vulkan-tools
   - rocm-smi-lib
   - lib32-vulkan-radeon
   - vulkan-icd-loader
@@ -16,7 +17,7 @@ amdgpu_packages:
   - lib32-mesa-vdpau
 
 dotfiles:
-  url: "https://github.com/DHDcc/MyHyprland.git"
+  url: "https://github.com/DHDcc/dotfiles.git"
   destination: "{{ user.home }}/.cache/MyHyprland"
   dependencies:
     - rsync
@@ -101,6 +102,7 @@ gaming_packages:
     - lutris
     - gamemode
     - mangohud
+    - lib32-mangohud
     - wine
   aur: 
     - heroic-games-launcher-bin
@@ -127,12 +129,14 @@ hypr_ecosystem:
 essential_packages:
   pacman:
     - uwsm
-    - firefox
     - udiskie
+    - firefox
     - waybar
+    - rofi-wayland
     - unp
     - swaync
     - qt5ct
+    - bat
     - qt6ct
     - playerctl
     - gnome-keyring 
@@ -153,7 +157,6 @@ essential_packages:
     - yazi
     - fzf
     - imv
-    - neofetch
     - imagemagick
     - btop
     - unzip
@@ -161,17 +164,16 @@ essential_packages:
     - swww
     - man-db
     - xdg-desktop-portal
-    - xdg-desktop-portal-wlr
     - xdg-desktop-portal-gtk
   aur:
-    - cava
-    - kew-git
+    - waypaper
+    - gpu-screen-recorder-gtk
     - downgrade
-    - rofi-lbonn-wayland-git
     - thunar-shares-plugin
 
 extra_packages:
   pacman:
+    - cava
     - yt-dlp
     - ncdu
     - plocate
@@ -181,10 +183,6 @@ extra_packages:
     - tldr
     - pika-backup
     - qbittorrent
-    - obs-studio
-    - zathura
-    - zathura-pdf-mupdf
-    - bat
     - newsboat
     - tree
   aur:
