@@ -110,10 +110,12 @@ gaming_packages:
 
 firewall:
   allow_ports:
+    - 11371
+    - 53317
+  deny_port: 
+    - 22
     - 80
     - 443
-    - 53317
-  deny_port: 22
 
 hypr_ecosystem:
   pacman:

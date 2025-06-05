@@ -33,14 +33,15 @@
 - name: Allow ports (udp).
   community.general.ufw:
     rule: allow
-    port: "{{ firewall.allow_ports[-1] }}"
+    port: "{{ firewall.allow_ports[1] }}"
     proto: udp
 
 - name: Deny ports.
   community.general.ufw:
     rule: deny
-    port: "{{ firewall.deny_port }}"
+    port: "{{ item }}"
     proto: tcp
+  loop: "{{ firewall.deny_port }}"
 
 - name: Set ufw default policy to deny incomming.
   community.general.ufw:
