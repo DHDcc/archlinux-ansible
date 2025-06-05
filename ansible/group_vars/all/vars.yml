@@ -128,50 +128,55 @@ hypr_ecosystem:
   aur: 
     - grimblast-git 
 
-essential_packages:
-  pacman:
-    - uwsm
-    - udiskie
-    - firefox
-    - waybar
-    - rofi-wayland
-    - unp
-    - swaync
-    - qt5ct
-    - bat
-    - qt6ct
-    - playerctl
-    - gnome-keyring 
-    - qt6-wayland
-    - qt5-wayland
-    - polkit-gnome
-    - network-manager-applet
-    - swappy 
-    - engrampa
-    - thunar
-    - tumbler
-    - gparted
-    - thunar-archive-plugin
-    - kitty
-    - zsh
-    - pacman-contrib
-    - lsd
-    - yazi
-    - fzf
-    - imv
-    - imagemagick
-    - btop
-    - unzip
-    - wl-clipboard
-    - swww
-    - man-db
-    - xdg-desktop-portal
-    - xdg-desktop-portal-gtk
-  aur:
-    - waypaper
-    - gpu-screen-recorder-gtk
-    - downgrade
-    - thunar-shares-plugin
+essential:
+  packages:
+    pacman:
+      - uwsm
+      - udiskie
+      - firefox
+      - waybar
+      - rofi-wayland
+      - unp
+      - swaync
+      - qt5ct
+      - bat
+      - qt6ct
+      - playerctl
+      - gnome-keyring 
+      - qt6-wayland
+      - qt5-wayland
+      - polkit-gnome
+      - network-manager-applet
+      - swappy 
+      - engrampa
+      - thunar
+      - tumbler
+      - gparted
+      - thunar-archive-plugin
+      - kitty
+      - zsh
+      - pacman-contrib
+      - lsd
+      - yazi
+      - fzf
+      - imv
+      - imagemagick
+      - btop
+      - unzip
+      - wl-clipboard
+      - swww
+      - man-db
+      - xdg-desktop-portal
+      - xdg-desktop-portal-gtk
+    aur:
+      - waypaper
+      - gpu-screen-recorder-gtk
+      - downgrade
+      - thunar-shares-plugin
+  services:
+    - waybar.service
+    - swaync.service
+    - hypridle.service
 
 extra_packages:
   pacman:
