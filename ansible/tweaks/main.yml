@@ -85,12 +85,6 @@
            vm.max_map_count = 2147483642
            vm.min_free_kbytes = 1048576
 
-     - name: Change power button behavior.
-       ansible.builtin.lineinfile:
-         path: "/etc/systemd/logind.conf"
-         search_string: "#HandlePowerKey="
-         line: "HandlePowerKey=suspend"
- 
      - name: Install preload (aur).
        kewlfft.aur.aur:
          name: preload
