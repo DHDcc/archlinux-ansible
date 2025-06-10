@@ -41,7 +41,7 @@
     rule: deny
     port: "{{ item }}"
     proto: tcp
-  loop: "{{ firewall.deny_port }}"
+  loop: "{{ firewall.deny_ports }}"
 
 - name: Set ufw default policy to deny incomming.
   community.general.ufw:

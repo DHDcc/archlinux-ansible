@@ -112,7 +112,7 @@ firewall:
   allow_ports:
     - 11371
     - 53317
-  deny_port: 
+  deny_ports: 
     - 22
     - 80
     - 443
