@@ -79,17 +79,17 @@
         value: "{{ dconf.value.button_layout }}"
       become: false
 
-    - name: copy onetime script.
+    - name: copy 'setWallpaper.sh'.
       ansible.builtin.copy:
-        src: "onetime.sh"
-        dest: "{{ user.home }}/.scripts"
+        src: "setWallpaper.sh"
+        dest: "{{ user.home }}/.scripts/setWallpaper.sh"
         owner: "{{ user.name }}"
         group: "{{ user.name }}"
         mode: '0700'
       become: false
 
-    - name: add onetime script in hyprland config file.
+    - name: add 'setWallpaper.sh' in hyprland config file.
       ansible.builtin.lineinfile:
         dest: "{{ user.home }}/.config/hypr/hyprland.conf"
-        line: "exec-once = $HOME/.scripts/onetime.sh"
+        line: "exec-once = $HOME/.scripts/setWallpaper.sh"
       become: false

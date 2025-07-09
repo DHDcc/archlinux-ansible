@@ -135,6 +135,7 @@ essential:
       - udiskie
       - firefox
       - waybar
+      - zoxide
       - rofi-wayland
       - unp
       - swaync
@@ -184,7 +185,6 @@ extra_packages:
     - yt-dlp
     - ncdu
     - plocate
-    - zoxide
     - piper
     - ttyper
     - tldr

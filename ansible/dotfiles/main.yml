@@ -21,6 +21,14 @@
          dest: "{{ dotfiles.destination }}"
          force: true
 
+     - name: Copy zshenv to "{{ user.home }}".
+       ansible.builtin.copy:
+         src: "{{ dotfiles.destination }}/.zshenv"
+         dest: "{{ user.home }}"
+         owner: "{{ user.name }}"
+         mode: '0600'
+       become: false
+
      - name: Copy configs directory.
        ansible.posix.synchronize: 
          src: "{{ dotfiles.destination }}/.config/"
