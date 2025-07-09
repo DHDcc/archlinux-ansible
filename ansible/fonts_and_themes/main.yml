@@ -78,3 +78,18 @@
         key: "{{ dconf.key_path.button_layout }}"
         value: "{{ dconf.value.button_layout }}"
       become: false
+
+    - name: copy onetime script.
+      ansible.builtin.copy:
+        src: "onetime.sh"
+        dest: "{{ user.home }}/.scripts"
+        owner: "{{ user.name }}"
+        group: "{{ user.name }}"
+        mode: '0700'
+      become: false
+
+    - name: add onetime script in hyprland config file.
+      ansible.builtin.lineinfile:
+        dest: "{{ user.home }}/.config/hypr/hyprland.conf"
+        line: "exec-once = $HOME/.scripts/onetime.sh"
+      become: false
