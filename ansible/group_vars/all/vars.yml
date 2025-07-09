@@ -140,7 +140,6 @@ essential:
       - swaync
       - qt5ct
       - bat
-      - zoxide
       - qt6ct
       - playerctl
       - gnome-keyring 
@@ -185,6 +184,7 @@ extra_packages:
     - yt-dlp
     - ncdu
     - plocate
+    - zoxide
     - piper
     - ttyper
     - tldr
